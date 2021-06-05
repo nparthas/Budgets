@@ -1,0 +1,19 @@
+{
+  "name": "budgets",
+  "version": "1.0.0",
+  "description": "Minimal budgeting app",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "budgets"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.1"
+  }
+}
