@@ -24,21 +24,22 @@ $pip install --upgrade pip
 echo "installing requirements..."
 $pip install -r $requirements
 
-echo "tapping mongodb server..."
-brew tap mongodb/brew
+echo "installing postgress..."
+brew install postgresql
 
-echo "installing mongodb..."
-brew install mongodb-community@4.4
-
-echo "starting mongo server"
-brew services start mongodb-community@4.4
-dbrunning=$(brew services list | grep mongodb-community || true)
+echo "starting postgress server"
+brew services start postgresql
+dbrunning=$(brew services list | grep postgresql || true)
 if [ -z $dbrunning ]
 then
     echo "db is not in the list of brew services, please manually fix"
     brew services list
     exit 1
 fi
+
+echo "create db and user"
+createdb budgets_db_dev
+psql --db=budgets_db_dev -c "CREATE USER budgets_user WITH PASSWORD 'password'; GRANT ALL PRIVILEGES ON DATABASE budgets_db_dev TO budgets_user"
 
 echo "applying first time migrations"
 $python manage.py migrate
