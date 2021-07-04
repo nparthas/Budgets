@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fof_1)i#t^xv@78$vr$83x420)h87ymd&r-y*j%3dn0*2cwtsf'  # noqa: E501
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fof_1)i#t^xv@78$vr$83x420)h87ymd&r-y*j%3dn0*2cwtsf')  # noqa: E501
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,6 +139,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 25
 }
 
+HASHIDS = {
+    # SECURITY WARNING: keep the salt used in production secret!
+    'SALT': os.environ.get('SALT', 'a dummy salt used for dev'),
+    'MIN_LENGTH': 8
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

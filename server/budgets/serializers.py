@@ -1,10 +1,18 @@
+from id_encoder import encode_id
 from rest_framework import serializers
 from userauth.models import User
 
 from budgets.models import Expense, Tag, UserProfile
 
 
-class ExpenseSerializer(serializers.ModelSerializer):
+class EncodedIdSerializerMixin(serializers.Serializer):
+    def to_representation(self, instance):
+        res = super().to_representation(instance)
+        res['id'] = encode_id(res['id'])
+        return res
+
+
+class ExpenseSerializer(serializers.ModelSerializer, EncodedIdSerializerMixin):
 
     class TagField(serializers.StringRelatedField):
         def to_representation(self, tag):
@@ -15,8 +23,9 @@ class ExpenseSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     "Invalid name - object cannot be blank")
             try:
+                user = self.context['request'].user.userprofile
                 # pylint: disable=maybe-no-member
-                tag = Tag.objects.get(name=data)
+                tag = Tag.objects.get(name=data, user=user)
             # pylint: disable=maybe-no-member
             except Tag.DoesNotExist:
                 raise serializers.ValidationError(
@@ -32,7 +41,7 @@ class ExpenseSerializer(serializers.ModelSerializer):
         ordering = ['-id']
 
 
-class TagSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.ModelSerializer, EncodedIdSerializerMixin):
 
     def validate_name(self, name):
         user = self.context['request'].user.userprofile
