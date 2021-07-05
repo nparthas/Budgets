@@ -17,6 +17,6 @@ urlpatterns = [
          name="account_email_verification_sent"),
     path('accounts-rest/registration/account-confirm-email/<str:key>/',
          confirm_email_view.as_view(), name='account_confirm_email'),
-    path('user/delete/', UserDeleteView.as_view()),
+    path('user/delete/', UserDeleteView.as_view(), name='user-delete'),
     path('verified/', UserVerifiedView.as_view())
 ]
