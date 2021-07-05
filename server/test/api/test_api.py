@@ -1,13 +1,12 @@
+from datetime import date
+
 from allauth.account.models import EmailAddress, EmailConfirmationHMAC
+from budgets.models import Expense, Tag  # pylint: disable=import-error
 from django.conf import settings
 from django.urls import reverse
+from id_encoder import encode_id  # pylint: disable=import-error
 from rest_framework import status, test
-from userauth.models import User
-from budgets.models import Tag, Expense
-
-from id_encoder import encode_id
-
-from datetime import date
+from userauth.models import User  # pylint: disable=import-error
 
 
 class AccountMixin:
