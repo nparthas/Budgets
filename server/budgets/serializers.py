@@ -46,6 +46,7 @@ class TagSerializer(serializers.ModelSerializer, EncodedIdSerializerMixin):
     def validate_name(self, name):
         user = self.context['request'].user.userprofile
 
+        # pylint: disable=maybe-no-member
         if Tag.objects.filter(name=name, user=user):
             raise serializers.ValidationError(
                 f"tag with name \"{name}\" already exists.")
