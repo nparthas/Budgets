@@ -2,16 +2,16 @@ PYTHON := python3
 
 IMAGE := $(shell basename `pwd`)
 
-TEST_DIR := test/api
-
+APP_DIR := app
+TEST_DIR := $(APP_DIR)/test/
 
 .PHONY: default-target
 default-target: run
 
 .PHONY: run
 run:
-	$(PYTHON) manage.py runserver
+	$(PYTHON) $(APP_DIR)/manage.py runserver
 
 .PHONY: test
 test: 
-	$(PYTHON) manage.py test $(TEST_DIR)
+	$(PYTHON) $(APP_DIR)/manage.py test $(TEST_DIR)
