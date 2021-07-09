@@ -33,13 +33,6 @@ body {
   position: relative;
 }
 
-.card-inner button {
-  position: absolute;
-  float: inline-start;
-  width: 200px;
-  height: 30px;
-}
-
 .card-inner.is-flipped {
   transform: rotateY(180deg);
 }
