@@ -17,11 +17,23 @@ body {
 }
 
 .card {
-  margin: 20px;
-  width: 200px;
-  height: 300px;
+  margin: 10px;
+  width: 150px;
+  height: 200px;
   perspective: 1000px;
   float: left;
+}
+
+.card-small {
+  margin: 20px;
+  width: 150px;
+  height: 200px;
+  perspective: 1000px;
+  float: left;
+}
+
+.link a {
+  text-decoration: none;
 }
 
 .card-inner {

@@ -1,14 +1,30 @@
 import ".././css/card.css";
-import { motion } from "framer-motion";
-import { useCycle } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = (props) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isFlipped, toggleFlipped] = useCycle(true, false);
 
   const toggleBoth = () => {
     toggleFlipped();
     toggleOpen();
+  };
+
+  const linkVariants = {
+    hidden: {
+      opacity: 0,
+      y: "100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        mass: 0.6,
+        damping: 8,
+      },
+    },
   };
 
   const containerVariants = {
@@ -32,19 +48,29 @@ const Card = () => {
   };
 
   return (
-    <motion.div
-      className="card"
-      onClick={() => toggleBoth}
-      variants={containerVariants}
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-    >
-      <div className={`card-inner ${isFlipped ? "is-flipped" : ""}`}>
-        <div className="card-face card-face--front" onClick={toggleBoth}>
-          <h2>Dev Card</h2>
+    <div className="card">
+      <motion.div
+        className="link"
+        variants={linkVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <Link to={`/${props.type}`}>{props.type}</Link>
+      </motion.div>
+      <motion.div
+        className="card-small"
+        onClick={() => toggleBoth}
+        variants={containerVariants}
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+      >
+        <div className={`card-inner ${isFlipped ? "is-flipped" : ""}`}>
+          <div className="card-face card-face--front" onClick={toggleBoth}>
+            <Link to={`/${props.type}`}>{props.type}</Link>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
