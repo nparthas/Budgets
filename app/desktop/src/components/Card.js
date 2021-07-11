@@ -4,7 +4,7 @@ import { useCycle } from "framer-motion";
 
 const Card = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [isFlipped, toggleFlipped] = useCycle(false, true);
+  const [isFlipped, toggleFlipped] = useCycle(true, false);
 
   const toggleBoth = () => {
     toggleFlipped();
@@ -42,17 +42,6 @@ const Card = () => {
       <div className={`card-inner ${isFlipped ? "is-flipped" : ""}`}>
         <div className="card-face card-face--front" onClick={toggleBoth}>
           <h2>Dev Card</h2>
-        </div>
-        <div className="card-face card-face--back" onClick={toggleBoth}>
-          <div className="card-content">
-            <div className="card-header">
-              <h2>Ben Krowchuk</h2>
-            </div>
-            <div className="card-body">
-              <h3>Java</h3>
-              <p>blah blah blah</p>
-            </div>
-          </div>
         </div>
       </div>
     </motion.div>
