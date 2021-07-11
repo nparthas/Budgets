@@ -3,22 +3,6 @@ import ".././css/card.css";
 import { Link } from "react-router-dom";
 
 const CardHome = (props) => {
-  const linkVariants = {
-    hidden: {
-      opacity: 0,
-      x: "100vw",
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        mass: 0.6,
-        damping: 8,
-      },
-    },
-  };
-
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -28,7 +12,7 @@ const CardHome = (props) => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
   };
