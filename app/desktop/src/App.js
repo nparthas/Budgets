@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
 function App() {
+  const my_name = "Ben";
+
   return (
     <Router>
       <div className="App">
@@ -13,7 +15,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home b={my_name} />
             </Route>
             <Route exact path="/Expenses">
               <Expenses />
