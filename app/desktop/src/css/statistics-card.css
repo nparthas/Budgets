@@ -18,7 +18,7 @@ body {
 
 .card {
   position: absolute;
-  margin: 20px;
+  margin-left: 20px;
   width: 330px;
   height: 200px;
   perspective: 1000px;
@@ -30,14 +30,12 @@ body {
   height: 440px;
   width: 330px;
 }
-
 .statistics {
   height: 200px;
   width: 330px;
 }
-
 .upcoming {
-  top: 350px;
+  top: 340px;
   height: 200px;
   width: 330px;
 }
