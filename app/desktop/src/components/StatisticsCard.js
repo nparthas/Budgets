@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import ".././css/card.css";
+import ".././css/statistics-card.css";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
 
-const CardHome = (props) => {
+const StatisticsCard = (props) => {
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -63,4 +63,4 @@ const CardHome = (props) => {
   );
 };
 
-export default CardHome;
+export default StatisticsCard;
