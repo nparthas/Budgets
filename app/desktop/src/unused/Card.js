@@ -11,22 +11,6 @@ const Card = (props) => {
     toggleOpen();
   };
 
-  const linkVariants = {
-    hidden: {
-      opacity: 0,
-      y: "100vh",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        mass: 0.6,
-        damping: 8,
-      },
-    },
-  };
-
   const containerVariants = {
     closed: {
       clipPath: "circle(30px at 30px 30px)",
@@ -49,14 +33,6 @@ const Card = (props) => {
 
   return (
     <div className="card">
-      <motion.div
-        className="link"
-        variants={linkVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <Link to={`/${props.type}`}>{props.type}</Link>
-      </motion.div>
       <motion.div
         className="card-small"
         onClick={() => toggleBoth}

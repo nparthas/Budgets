@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ".././css/expenses.css";
 import { motion } from "framer-motion";
 
 const Expenses = () => {
