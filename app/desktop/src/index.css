@@ -11,72 +11,8 @@
   background-color: beige;
 }
 
-.navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 700px;
-  margin: 0 auto;
-  border-bottom: 1px solid darkgray;
-}
-.navbar h1 {
-  color: #f1356d;
-}
-.navbar .links {
-  margin-left: auto;
-}
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-}
-.navbar a:hover {
-  color: #f1356d;
-}
 .content {
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
-}
-
-/* Blog preview stuff */
-.blog-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-}
-
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-}
-
-.blog-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
-}
-
-.blog-preview a {
-  text-decoration: none;
-}
-
-/* Expense sheet */
-.expenses {
-  margin: auto;
-  margin-left: 20px;
-  float: left;
-}
-
-/* Stats sheet */
-.statistics {
-  margin: auto;
-  margin-left: 20px;
-  float: left;
-}
-
-/* Upcoming Expense sheet */
-.upcoming {
-  margin: auto;
-  margin-left: 20px;
-  float: left;
 }

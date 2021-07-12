@@ -79,7 +79,11 @@ body {
 }
 
 .card-face--front {
-  background-image: linear-gradient(--primary, --secondary);
+  background-image: linear-gradient(
+    to bottom left,
+    var(--primary) 10%,
+    var(--secondary) 115%
+  );
   display: flex;
   align-items: center;
   justify-content: center;

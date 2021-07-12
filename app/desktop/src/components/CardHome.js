@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ".././css/card.css";
 import { Link } from "react-router-dom";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryPie } from "victory";
+import { VictoryPie } from "victory";
 
 const CardHome = (props) => {
   const expandVariants = {
@@ -52,7 +52,7 @@ const CardHome = (props) => {
               data={data}
               x="quarter"
               y="earnings"
-              colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
+              colorScale={["purple", "silver", "cyan", "lime"]}
               labelRadius={({ innerRadius }) => innerRadius + 40}
               innerRadius={0}
             />
