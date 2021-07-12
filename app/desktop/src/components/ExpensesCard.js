@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ".././css/statistics-card.css";
+import ".././css/expenses-card.css";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
 
