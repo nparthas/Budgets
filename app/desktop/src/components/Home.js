@@ -1,11 +1,11 @@
-import CardHome from "./CardHome";
+import StatisticsCard from "./StatisticsCard";
 
 const Home = () => {
   return (
     <div>
-      <CardHome type={"Statistics"}></CardHome>
-      <CardHome type={"Expenses"}></CardHome>
-      <CardHome type={"Upcoming"}></CardHome>
+      <StatisticsCard type={"Statistics"}></StatisticsCard>
+      <StatisticsCard type={"Expenses"}></StatisticsCard>
+      <StatisticsCard type={"Upcoming"}></StatisticsCard>
     </div>
   );
 };
