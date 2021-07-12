@@ -36,7 +36,7 @@ const CardHome = (props) => {
     >
       <div className="card-inner">
         <Link to={`/${props.type}`}>
-          <div className="card-face card-face--front">
+          <div className="card-face">
             <VictoryPie
               style={{
                 data: {
