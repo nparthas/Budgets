@@ -17,11 +17,29 @@ body {
 }
 
 .card {
-  margin: 10px;
-  width: 280px;
+  position: absolute;
+  margin: 20px;
+  width: 330px;
   height: 200px;
   perspective: 1000px;
   float: left;
+}
+
+.expenses {
+  left: 390px;
+  height: 440px;
+  width: 330px;
+}
+
+.statistics {
+  height: 200px;
+  width: 330px;
+}
+
+.upcoming {
+  top: 350px;
+  height: 200px;
+  width: 330px;
 }
 
 .card-small {
@@ -61,11 +79,7 @@ body {
 }
 
 .card-face--front {
-  background-image: linear-gradient(
-    to bottom right,
-    var(--primary),
-    var(--secondary)
-  );
+  background-image: linear-gradient(--primary, --secondary);
   display: flex;
   align-items: center;
   justify-content: center;

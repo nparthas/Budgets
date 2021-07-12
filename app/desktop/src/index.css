@@ -6,13 +6,18 @@
   font-family: "Quicksand";
   color: #333;
 }
+
+.root {
+  background-color: beige;
+}
+
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid darkgray;
 }
 .navbar h1 {
   color: #f1356d;
@@ -29,8 +34,8 @@
   color: #f1356d;
 }
 .content {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 900px;
+  margin: 20px auto;
   padding: 20px;
 }
 
@@ -57,21 +62,21 @@
 
 /* Expense sheet */
 .expenses {
-  max-width: 200px;
-  margin: 0 auto;
+  margin: auto;
+  margin-left: 20px;
   float: left;
 }
 
 /* Stats sheet */
 .statistics {
-  max-width: 200px;
-  margin: 0 auto;
+  margin: auto;
+  margin-left: 20px;
   float: left;
 }
 
 /* Upcoming Expense sheet */
 .upcoming {
-  max-width: 200px;
-  margin: 0 auto;
+  margin: auto;
+  margin-left: 20px;
   float: left;
 }
