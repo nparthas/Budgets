@@ -63,10 +63,6 @@ body {
   position: relative;
 }
 
-.card-inner.is-flipped {
-  transform: rotateY(180deg);
-}
-
 .card-face {
   position: absolute;
   width: 100%;
@@ -76,9 +72,6 @@ body {
   overflow: hidden;
   border-radius: 5%;
   box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.2);
-}
-
-.card-face--front {
   background-image: linear-gradient(
     to bottom left,
     var(--primary) 10%,
@@ -89,14 +82,9 @@ body {
   justify-content: center;
 }
 
-.card-face--front h2 {
+.card-face h2 {
   color: #fff;
   font-size: 16px;
-}
-
-.card-face--back {
-  background-color: var(--light);
-  transform: rotateY(180deg);
 }
 
 .card-content {
@@ -124,17 +112,6 @@ body {
     var(--primary) 10%,
     var(--secondary) 115%
   );
-}
-
-.pp {
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 15px;
-  border-radius: 50%;
-  background-color: #fff;
-  border: 5px solid #fff;
-  object-fit: cover;
 }
 
 .card-header h2 {
