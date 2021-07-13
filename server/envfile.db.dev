@@ -1,0 +1,3 @@
+POSTGRES_USER=budgets_user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=budgets_db_dev
