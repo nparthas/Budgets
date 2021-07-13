@@ -1,5 +1,5 @@
-import StatisticsCard from "./StatisticsCard";
-import ExpensesCard from "./ExpensesCard";
+import StatisticsCard from "../components/StatisticsCard";
+import ExpensesCard from "../components/ExpensesCard";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };

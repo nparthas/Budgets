@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Expenses from "./components/Expenses";
-import Statistics from "./components/Statistics";
-import Upcoming from "./components/Upcoming";
-import Home from "./components/Home";
+import Expenses from "./pages/Expenses";
+import Statistics from "./pages/Statistics";
+import Upcoming from "./pages/Upcoming";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 
 function App() {
