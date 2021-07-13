@@ -1,16 +1,8 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  min-height: 100vh;
-}
-
 .card {
-  position: absolute;
   margin-left: 20px;
   width: 330px;
   height: 200px;
   perspective: 1000px;
-  float: left;
 }
 
 .expenses {
@@ -24,21 +16,10 @@ body {
 }
 
 .card-inner {
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
-  transform-style: preserve-3d;
   cursor: pointer;
-  position: relative;
 }
 
 .card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: visible;
-  overflow: hidden;
   border-radius: 5%;
   box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.2);
   background-image: linear-gradient(
@@ -46,19 +27,15 @@ body {
     var(--primary) 10%,
     var(--secondary) 115%
   );
-  display: flex;
+  display: inline;
   align-items: center;
+  text-align: center;
   justify-content: center;
 }
 
 .card-face h2 {
-  color: #fff;
+  color: #333;
   font-size: 16px;
-}
-
-.card-content {
-  width: 100%;
-  height: 100%;
 }
 
 .card-header {
@@ -89,21 +66,4 @@ body {
   font-weight: 450;
   text-transform: uppercase;
   text-align: center;
-}
-
-.card-body {
-  padding: 10px;
-}
-
-.card-body h3 {
-  color: var(--dark);
-  font-size: 12px;
-  font-weight: 200;
-  margin-bottom: 8px;
-}
-
-.card-body p {
-  color: var(--dark);
-  font-size: 10px;
-  line-height: 1.5;
 }
