@@ -1,0 +1,16 @@
+{
+  "expenses": [
+    {
+      "title": "Yoshi's birthday bash",
+      "category": "essential",
+      "amount": 100,
+      "id": 1
+    },
+    {
+      "title": "2nd expense",
+      "category": "essential",
+      "amount": 150,
+      "id": 2
+    }
+  ]
+}

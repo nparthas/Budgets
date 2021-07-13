@@ -11,6 +11,8 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const useStyles = makeStyles({
   table: {
@@ -20,6 +22,14 @@ const useStyles = makeStyles({
 });
 
 const ExpensesCard = (props) => {
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/expenses")
+      .then((res) => res.json())
+      .then((data) => setExpenses(data));
+  }, []);
+
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -34,34 +44,33 @@ const ExpensesCard = (props) => {
     },
   };
 
-  const card_type = props.type.toLowerCase();
   const classes = useStyles();
   return (
     <motion.div
-      className={`card ${card_type}`}
+      className="card expenses"
       variants={expandVariants}
       initial="hidden"
       animate="visible"
     >
       <div className="card-inner">
-        <Link to={`/${props.type}`}>
+        <Link to="/Expenses">
           <div className="card-face">
             <h2 className="card-header">Expenses</h2>
             <TableContainer className={classes.table} component={Paper}>
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Dessert (100g serving)</TableCell>
-                    <TableCell align="right">Calories</TableCell>
+                    <TableCell>Expense</TableCell>
+                    <TableCell align="right">Amount</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {props.data.map((row) => (
-                    <TableRow key={row.name}>
+                  {expenses.map((expense) => (
+                    <TableRow key={expense.id}>
                       <TableCell component="th" scope="row">
-                        {row.name}
+                        {expense.title}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
+                      <TableCell align="right">{expense.amount}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
