@@ -1,10 +1,11 @@
 import StatisticsCard from "./StatisticsCard";
+import ExpensesCard from "./ExpensesCard";
 
 const Home = () => {
   return (
     <div>
       <StatisticsCard type={"Statistics"}></StatisticsCard>
-      <StatisticsCard type={"Expenses"}></StatisticsCard>
+      <ExpensesCard type={"Expenses"}></ExpensesCard>
       <StatisticsCard type={"Upcoming"}></StatisticsCard>
     </div>
   );
