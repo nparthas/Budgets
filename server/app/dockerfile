@@ -1,0 +1,32 @@
+FROM python:3.9.5-alpine
+
+ARG USER=default
+ENV HOME /home/$USER
+
+RUN apk add --update sudo
+
+RUN adduser -D $USER \
+    && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
+    && chmod 0440 /etc/sudoers.d/$USER
+
+RUN apk add --no-cache \
+    musl-dev \
+    gcc \
+    postgresql-dev \
+    libffi-dev \ 
+    cargo
+
+USER $USER
+
+WORKDIR /$HOME/app
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt --no-warn-script-location
+
+COPY . .
+
+ENTRYPOINT ["/home/default/app/entrypoint.sh"]

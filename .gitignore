@@ -35,3 +35,7 @@ jspm_packages/
 .vscode
 
 __pycache__
+.mypy_cache
+
+# production files
+*.prod
