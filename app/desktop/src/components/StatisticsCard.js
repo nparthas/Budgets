@@ -2,8 +2,17 @@ import { motion } from "framer-motion";
 import ".././css/statistics-card.css";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
+import { useEffect, useState } from "react";
 
 const StatisticsCard = (props) => {
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/expenses")
+      .then((res) => res.json())
+      .then((data) => setExpenses(data));
+  }, []);
+
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -18,24 +27,23 @@ const StatisticsCard = (props) => {
     },
   };
 
-  const data = [
-    { quarter: 1, earnings: 13000 },
-    { quarter: 2, earnings: 16500 },
-    { quarter: 3, earnings: 14250 },
-    { quarter: 4, earnings: 19000 },
-  ];
+  function addToData(id, amount) {
+    return { id, amount };
+  }
 
-  const card_type = props.type.toLowerCase();
+  const data = expenses.map((expense) =>
+    addToData(expense.title, expense.amount)
+  );
 
   return (
     <motion.div
-      className={`card ${card_type}`}
+      className="card statistics"
       variants={expandVariants}
       initial="hidden"
       animate="visible"
     >
       <div className="card-inner">
-        <Link to={`/${props.type}`}>
+        <Link to="/Statistics">
           <div className="card-face">
             <VictoryPie
               style={{
@@ -50,8 +58,8 @@ const StatisticsCard = (props) => {
                 },
               }}
               data={data}
-              x="quarter"
-              y="earnings"
+              x="id"
+              y="amount"
               colorScale={["purple", "silver", "cyan", "lime"]}
               labelRadius={({ innerRadius }) => innerRadius + 40}
               innerRadius={0}
