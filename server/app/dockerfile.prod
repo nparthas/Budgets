@@ -1,0 +1,46 @@
+FROM python:3.9.5-alpine as builder
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR /home/default/app
+
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev libffi-dev cargo
+
+COPY ./requirements.txt .
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /home/default/app/wheels -r requirements.txt
+
+
+FROM python:3.9.5-alpine
+
+ARG USER=default
+ENV HOME /home/$USER
+ENV APP_HOME $HOME/app
+
+RUN addgroup -S default && adduser -S default -G default 
+
+RUN mkdir -p $APP_HOME
+RUN mkdir =p $APP_HOME/staticfiles
+WORKDIR $APP_HOME
+
+# install dependencies
+RUN apk update && apk add libpq
+COPY --from=builder $APP_HOME/wheels /wheels
+COPY --from=builder $APP_HOME/requirements.txt .
+RUN pip install --no-cache /wheels/*
+
+# copy entrypoint-prod.sh
+COPY ./entrypoint.sh $APP_HOME
+
+# copy project
+COPY . $APP_HOME
+
+# chown all the files to the app user
+RUN chown -R default:default $APP_HOME
+
+# change to the app user
+USER default
+
+# run entrypoint.prod.sh
+ENTRYPOINT ["/home/default/app/entrypoint.sh"]
