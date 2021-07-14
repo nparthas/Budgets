@@ -67,12 +67,7 @@ const Expenses = () => {
   };
 
   return (
-    <motion.div
-      className="expenses"
-      variants={expandVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={expandVariants} initial="hidden" animate="visible">
       <Link to="/">Back</Link>
       <Container size="sm">
         <Typography

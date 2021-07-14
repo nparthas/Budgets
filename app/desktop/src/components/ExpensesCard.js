@@ -47,7 +47,7 @@ const ExpensesCard = (props) => {
   const classes = useStyles();
   return (
     <motion.div
-      className="card expenses"
+      className="card expense-card"
       variants={expandVariants}
       initial="hidden"
       animate="visible"
