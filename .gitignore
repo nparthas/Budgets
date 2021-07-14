@@ -38,4 +38,6 @@ __pycache__
 .mypy_cache
 
 # production files
-*.prod
+envfile.prod
+envfile.db.prod
+staticfiles
