@@ -2,15 +2,21 @@
   "expenses": [
     {
       "title": "Yoshi's birthday bash",
-      "category": "essential",
+      "category": "money",
       "amount": 100,
       "id": 1
     },
     {
       "title": "2nd expense",
-      "category": "essential",
+      "category": "money",
       "amount": 150,
       "id": 2
+    },
+    {
+      "title": "cool",
+      "category": "todos",
+      "amount": "100",
+      "id": 3
     }
   ]
 }
