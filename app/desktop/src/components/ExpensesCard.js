@@ -55,7 +55,6 @@ const ExpensesCard = (props) => {
       <div className="card-inner">
         <Link to="/Expenses">
           <div className="card-face">
-            <h2 className="card-header">Expenses</h2>
             <TableContainer className={classes.table} component={Paper}>
               <Table aria-label="simple table">
                 <TableHead>
