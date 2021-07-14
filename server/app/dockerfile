@@ -14,11 +14,13 @@ RUN apk add --no-cache \
     gcc \
     postgresql-dev \
     libffi-dev \ 
-    cargo
+    cargo \
+    vim \
+    curl
 
 USER $USER
 
-WORKDIR /$HOME/app
+WORKDIR $HOME/app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
