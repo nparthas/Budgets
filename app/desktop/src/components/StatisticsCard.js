@@ -27,12 +27,13 @@ const StatisticsCard = (props) => {
     },
   };
 
-  function addToData(id, amount) {
+  function addToData(id, amt) {
+    const amount = parseInt(amt);
     return { id, amount };
   }
 
   const data = expenses.map((expense) =>
-    addToData(expense.title, expense.amount)
+    addToData(expense.category, expense.amount)
   );
 
   return (
@@ -60,7 +61,7 @@ const StatisticsCard = (props) => {
               data={data}
               x="id"
               y="amount"
-              colorScale={["purple", "silver", "cyan", "lime"]}
+              colorScale={"blue"}
               labelRadius={({ innerRadius }) => innerRadius + 40}
               innerRadius={0}
             />
