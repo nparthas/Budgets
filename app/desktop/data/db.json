@@ -3,13 +3,13 @@
     {
       "title": "Yoshi's birthday bash",
       "category": "money",
-      "amount": 100,
+      "amount": "100",
       "id": 1
     },
     {
       "title": "2nd expense",
       "category": "money",
-      "amount": 150,
+      "amount": "150",
       "id": 2
     },
     {
@@ -17,6 +17,24 @@
       "category": "todos",
       "amount": "100",
       "id": 3
+    },
+    {
+      "title": "bens new expense",
+      "category": "reminders",
+      "amount": "150",
+      "id": 4
+    },
+    {
+      "title": "neil expense",
+      "category": "reminders",
+      "amount": "75",
+      "id": 5
+    },
+    {
+      "title": "h",
+      "category": "money",
+      "amount": "71",
+      "id": 6
     }
   ]
 }
