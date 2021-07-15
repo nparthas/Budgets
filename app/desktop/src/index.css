@@ -7,12 +7,12 @@
   color: #333;
 }
 
-.root {
-  background-color: beige;
+.App {
+  background-color: bisque;
 }
 
 .content {
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 20px auto;
   padding: 20px;
 }

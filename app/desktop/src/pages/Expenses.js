@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ".././css/expenses.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -68,7 +67,6 @@ const Expenses = () => {
 
   return (
     <motion.div variants={expandVariants} initial="hidden" animate="visible">
-      <Link to="/">Back</Link>
       <Container size="sm">
         <Typography
           variant="h6"

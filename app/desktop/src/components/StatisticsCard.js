@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
 import { useEffect, useState } from "react";
 import {
-  Paper,
   Card,
   CardHeader,
   CardContent,
   IconButton,
-  Typography,
   makeStyles,
 } from "@material-ui/core";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
@@ -21,6 +19,18 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: "none",
+  },
+  card: {
+    width: 330,
+    height: 200,
+  },
+  background: {
+    backgroundColor: "salmon",
+  },
+  content: {
+    margin: 0,
+    padding: 0,
+    maxHeight: 200,
   },
 });
 
@@ -52,52 +62,49 @@ const StatisticsCard = (props) => {
     return { id, amount };
   }
 
-  const data = expenses.map((expense) =>
-    addToData(expense.category, expense.amount)
-  );
+  const data = expenses.map((expense) => addToData(expense.id, expense.amount));
   const classes = useStyles();
 
   return (
-    // <motion.div
-    //   className="card"
-    //   variants={expandVariants}
-    //   initial="hidden"
-    //   animate="visible"
-    // >
-    <Card>
-      <CardHeader
-        title="Statistics"
-        action={
-          <Link to="/Statistics" className={classes.link}>
-            <IconButton>
-              <EqualizerIcon />
-            </IconButton>
-          </Link>
-        }
-      />
-      <CardContent>
-        <VictoryPie
-          style={{
-            data: {
-              fillOpacity: 0.9,
-              stroke: "#333",
-              strokeWidth: 2,
-            },
-            labels: {
-              fontSize: 20,
-              fill: "#333",
-            },
-          }}
-          data={data}
-          x="id"
-          y="amount"
-          colorScale={"grayscale"}
-          // labelRadius={({ innerRadius }) => innerRadius + 40}
-          innerRadius={0}
+    <motion.div
+      className={classes.card}
+      variants={expandVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <Card className={classes.background}>
+        <CardHeader
+          title="Statistics"
+          action={
+            <Link to="/Statistics" className={classes.link}>
+              <IconButton>
+                <EqualizerIcon />
+              </IconButton>
+            </Link>
+          }
         />
-      </CardContent>
-    </Card>
-    // </motion.div>
+        <CardContent className={classes.content}>
+          <VictoryPie
+            style={{
+              data: {
+                fillOpacity: 0.9,
+                stroke: "#f9f9f9",
+                strokeWidth: 2,
+              },
+              labels: {
+                fontSize: 20,
+                fill: "#f9f9f9",
+              },
+            }}
+            height={270}
+            data={data}
+            x="id"
+            y="amount"
+            colorScale={"red"}
+          />
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 
