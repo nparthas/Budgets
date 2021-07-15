@@ -40,6 +40,10 @@ sh-db:
 migrations:
 	$(COMPOSE) exec $(SERVER) $(DJANGO) migrate --noinput
 
+.PHONY: staticfiles
+staticfiles:
+	$(COMPOSE) exec $(SERVER) $(DJANGO) collectstatic --noinput --clear
+
 .PHONY: test
 test:
 	$(COMPOSE) exec $(SERVER) $(DJANGO) test $(TEST_DIR)
