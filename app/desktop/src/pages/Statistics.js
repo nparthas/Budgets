@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import ".././css/statistics.css";
 
@@ -26,7 +25,6 @@ const Statistics = () => {
     >
       <h2>Statistics</h2>
       <p>this is a statistic</p>
-      <Link to="/">Back</Link>
     </motion.div>
   );
 };

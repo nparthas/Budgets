@@ -7,34 +7,16 @@
       "id": 1
     },
     {
-      "title": "2nd expense",
+      "title": "new 1",
       "category": "money",
-      "amount": "150",
+      "amount": "100",
       "id": 2
     },
     {
-      "title": "cool",
+      "title": "new 2",
       "category": "todos",
       "amount": "100",
       "id": 3
-    },
-    {
-      "title": "bens new expense",
-      "category": "reminders",
-      "amount": "150",
-      "id": 4
-    },
-    {
-      "title": "neil expense",
-      "category": "reminders",
-      "amount": "75",
-      "id": 5
-    },
-    {
-      "title": "h",
-      "category": "money",
-      "amount": "71",
-      "id": 6
     }
   ]
 }
