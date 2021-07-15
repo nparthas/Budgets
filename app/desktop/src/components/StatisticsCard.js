@@ -3,6 +3,26 @@ import ".././css/statistics-card.css";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
 import { useEffect, useState } from "react";
+import {
+  Paper,
+  Card,
+  CardHeader,
+  CardContent,
+  IconButton,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
+
+const useStyles = makeStyles({
+  table: {
+    maxWidth: 320,
+    padding: "5px",
+  },
+  link: {
+    textDecoration: "none",
+  },
+});
 
 const StatisticsCard = (props) => {
   const [expenses, setExpenses] = useState([]);
@@ -35,40 +55,49 @@ const StatisticsCard = (props) => {
   const data = expenses.map((expense) =>
     addToData(expense.category, expense.amount)
   );
+  const classes = useStyles();
 
   return (
-    <motion.div
-      className="card statistics"
-      variants={expandVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="card-inner">
-        <Link to="/Statistics">
-          <div className="card-face">
-            <VictoryPie
-              style={{
-                data: {
-                  fillOpacity: 0.9,
-                  stroke: "#333",
-                  strokeWidth: 2,
-                },
-                labels: {
-                  fontSize: 20,
-                  fill: "#333",
-                },
-              }}
-              data={data}
-              x="id"
-              y="amount"
-              colorScale={"blue"}
-              labelRadius={({ innerRadius }) => innerRadius + 40}
-              innerRadius={0}
-            />
-          </div>
-        </Link>
-      </div>
-    </motion.div>
+    // <motion.div
+    //   className="card"
+    //   variants={expandVariants}
+    //   initial="hidden"
+    //   animate="visible"
+    // >
+    <Card>
+      <CardHeader
+        title="Statistics"
+        action={
+          <Link to="/Statistics" className={classes.link}>
+            <IconButton>
+              <EqualizerIcon />
+            </IconButton>
+          </Link>
+        }
+      />
+      <CardContent>
+        <VictoryPie
+          style={{
+            data: {
+              fillOpacity: 0.9,
+              stroke: "#333",
+              strokeWidth: 2,
+            },
+            labels: {
+              fontSize: 20,
+              fill: "#333",
+            },
+          }}
+          data={data}
+          x="id"
+          y="amount"
+          colorScale={"grayscale"}
+          // labelRadius={({ innerRadius }) => innerRadius + 40}
+          innerRadius={0}
+        />
+      </CardContent>
+    </Card>
+    // </motion.div>
   );
 };
 

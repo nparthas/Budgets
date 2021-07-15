@@ -1,28 +1,23 @@
 import StatisticsCard from "../components/StatisticsCard";
 import ExpensesCard from "../components/ExpensesCard";
-
+import { Grid, Container } from "@material-ui/core";
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData("Frozen yoghurt", 15900, 6.0, 24, 1),
-  createData("Ice cream sandwich", 23700, 9.0, 37, 2),
-  createData("Eclair", 26200, 16.0, 24, 3),
-  createData("Cupcake", 30500, 3.7, 67, 4),
-];
-
 const Home = () => {
   return (
-    <div>
-      <StatisticsCard
-        type={"Statistics"}
-        protein={rows.protein}
-        calories={rows.calories}
-      ></StatisticsCard>
-      <ExpensesCard type={"Expenses"} data={rows}></ExpensesCard>
-      {/* <StatisticsCard type={"Upcoming"} data={rows}></StatisticsCard> */}
-    </div>
+    <Container>
+      <Grid container spacing={3}>
+        <Grid item xs={6} md={6} lg={6} key={1}>
+          <StatisticsCard type={"Statistics"}></StatisticsCard>
+        </Grid>
+        <Grid item xs={6} md={6} lg={6} key={2}>
+          <ExpensesCard type={"Expenses"}></ExpensesCard>
+        </Grid>
+        {/* <StatisticsCard type={"Upcoming"} data={rows}></StatisticsCard> */}
+      </Grid>
+    </Container>
   );
 };
 
