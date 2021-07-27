@@ -31,11 +31,11 @@ const useStyles = makeStyles({
   card: {
     width: 330,
     backgroundColor: blueGrey[800],
+    height: "100%",
   },
   content: {
     margin: 0,
     padding: "0px 15px",
-    maxHeight: "190px",
   },
 });
 
@@ -84,7 +84,7 @@ const UpcomingCard = () => {
         <CardContent className={classes.content}>
           <Link to="/Upcoming" className={classes.link}>
             <TableContainer className={classes.table} component={Paper}>
-              <Table aria-label="simple table">
+              <Table aria-label="simple table" size="small">
                 <TableHead>
                   <TableRow>
                     <TableCell>Expense</TableCell>

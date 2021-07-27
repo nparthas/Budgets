@@ -37,7 +37,7 @@ const Expenses = () => {
   return (
     <motion.div variants={expandVariants} initial="hidden" animate="visible">
       <TableContainer className="table" component={Paper}>
-        <Table aria-label="simple table">
+        <Table aria-label="simple table" size="small">
           <TableHead>
             <TableRow>
               <TableCell>Expense</TableCell>

@@ -5,6 +5,12 @@
   width: 330px;
 }
 
+.upcoming-card {
+  left: 390px;
+  max-height: 290px;
+  width: 330px;
+}
+
 .link a {
   text-decoration: none;
 }
