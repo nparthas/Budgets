@@ -10,7 +10,6 @@ import {
   Paper,
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
@@ -37,13 +36,6 @@ const Expenses = () => {
 
   return (
     <motion.div variants={expandVariants} initial="hidden" animate="visible">
-      {/* app bar */}
-      <nav className="bar">
-        <h1>Expenses</h1>
-        <div className="links">
-          <Link to="/NewExpense">New</Link>
-        </div>
-      </nav>
       <TableContainer className="table" component={Paper}>
         <Table aria-label="simple table">
           <TableHead>

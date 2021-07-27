@@ -5,6 +5,7 @@
   margin: 0;
   font-family: "Quicksand";
   color: orange;
+  /* overflow-y: hidden; */
 }
 
 .my-masonry-grid {

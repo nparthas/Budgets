@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Router>
-      <Layout>
+      <Layout className="no-scroll">
         <Switch>
           <Route exact path="/">
             <Home b={my_name} />
