@@ -5,6 +5,7 @@ import Upcoming from "./pages/Upcoming";
 import Home from "./pages/Home";
 import NewExpense from "./pages/NewExpense";
 import Layout from "./components/Layout";
+import Preview from "./pages/Preview";
 
 function App() {
   const my_name = "Ben";
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route exact path="/NewExpense">
             <NewExpense />
+          </Route>
+          <Route exact path="/Preview">
+            <Preview />
           </Route>
         </Switch>
       </Layout>

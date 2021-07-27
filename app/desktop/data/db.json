@@ -60,5 +60,31 @@
       "amount": "45",
       "id": 10
     }
+  ],
+  "charts": [
+    {
+      "title": "Yoshi's birthday bash",
+      "category": "money",
+      "amount": "100",
+      "id": 1
+    },
+    {
+      "title": "new 1",
+      "category": "money",
+      "amount": "100",
+      "id": 2
+    },
+    {
+      "title": "new expense",
+      "category": "reminders",
+      "amount": "95",
+      "id": 3
+    },
+    {
+      "title": "a",
+      "category": "money",
+      "amount": "65",
+      "id": 4
+    }
   ]
 }
