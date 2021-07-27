@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ".././css/statistics.css";
 import StatisticsPageCard from "../components/StatisticsPageCard";
 import { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
@@ -35,12 +34,7 @@ const Statistics = () => {
   };
 
   return (
-    <motion.div
-      className="statistics"
-      variants={expandVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={expandVariants} initial="hidden" animate="visible">
       <Container>
         <Masonry
           breakpointCols={breakpoints}
@@ -48,9 +42,8 @@ const Statistics = () => {
           columnClassName="my-masonry-grid_column"
         >
           {charts.map((chart) => (
-            <div key={note.id}>
+            <div key={chart.id}>
               <StatisticsPageCard chart={chart}></StatisticsPageCard>
-              <NoteCard note={note} handleDelete={handleDelete} />
             </div>
           ))}
         </Masonry>

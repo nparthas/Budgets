@@ -9,16 +9,18 @@ import {
   CardContent,
   IconButton,
   makeStyles,
+  Avatar,
 } from "@material-ui/core";
+import { DeleteOutlined } from "@material-ui/icons";
 import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
-import { blueGrey } from "@material-ui/core/colors";
+import { blueGrey, blue, green, pink, yellow } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   link: {
     textDecoration: "none",
   },
   card: {
-    width: 330,
+    width: "100%",
   },
   background: {
     backgroundColor: blueGrey[800],
@@ -27,9 +29,38 @@ const useStyles = makeStyles({
     margin: 0,
     padding: 0,
   },
+  avatar: {
+    backgroundColor: (note) => {
+      if (note.category === "work") {
+        return yellow[700];
+      }
+      if (note.category === "money") {
+        return green[500];
+      }
+      if (note.category === "todos") {
+        return pink[500];
+      }
+      return blue[500];
+    },
+  },
 });
 
-const StatisticsPageCard = (props) => {
+const expandVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const StatisticsPageCard = ({ chart }) => {
+  const classes = useStyles(chart);
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
@@ -38,45 +69,34 @@ const StatisticsPageCard = (props) => {
       .then((data) => setExpenses(data));
   }, []);
 
-  const expandVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   function addToData(id, amt) {
     const amount = parseInt(amt);
     return { id, amount };
   }
 
   const data = expenses.map((expense) => addToData(expense.id, expense.amount));
-  const classes = useStyles();
 
   return (
     <motion.div
-      className={classes.card}
+      //   className={classes.card}
       variants={expandVariants}
       initial="hidden"
       animate="visible"
     >
-      <Card className={classes.background}>
+      <Card elevation={2} className={classes.background}>
         <CardHeader
-          title="Pie Chart"
-          action={
-            <Link to="/Preview" className={classes.link}>
-              <IconButton>
-                <ZoomOutMapIcon />
-              </IconButton>
-            </Link>
+          avatar={
+            <Avatar className={classes.avatar}>
+              {chart.category[0].toUpperCase()}
+            </Avatar>
           }
+          action={
+            <IconButton>
+              <DeleteOutlined />
+            </IconButton>
+          }
+          title={chart.title}
+          subheader={chart.category}
         />
         <CardContent className={classes.content}>
           <Link to="/Preview" className={classes.link}>
