@@ -13,12 +13,17 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import { useHistory } from "react-router-dom";
+import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   field: {
     marginTop: 20,
     marginBottom: 20,
     display: "block",
+  },
+  form: {
+    background: blueGrey[700],
+    padding: "20px 5px",
   },
 });
 
@@ -66,7 +71,12 @@ const Expenses = () => {
   };
 
   return (
-    <motion.div variants={expandVariants} initial="hidden" animate="visible">
+    <motion.div
+      variants={expandVariants}
+      initial="hidden"
+      animate="visible"
+      className={classes.form}
+    >
       <Container size="sm">
         <Typography variant="h6" color="orange" component="h2" gutterBottom>
           Create a New Expense

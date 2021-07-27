@@ -1,7 +1,19 @@
 import { motion } from "framer-motion";
 import ".././css/statistics.css";
+import StatisticsPageCard from "../components/StatisticsPageCard";
+import { useState, useEffect } from "react";
+import Masonry from "react-masonry-css";
+import { Container } from "@material-ui/core";
 
 const Statistics = () => {
+  const [charts, setCharts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/charts")
+      .then((res) => res.json())
+      .then((data) => setCharts(data));
+  }, []);
+
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -16,6 +28,12 @@ const Statistics = () => {
     },
   };
 
+  const breakpoints = {
+    default: 3,
+    1100: 2,
+    700: 1,
+  };
+
   return (
     <motion.div
       className="statistics"
@@ -23,8 +41,20 @@ const Statistics = () => {
       initial="hidden"
       animate="visible"
     >
-      <h2>Statistics</h2>
-      <p>this is a statistic</p>
+      <Container>
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {charts.map((chart) => (
+            <div key={note.id}>
+              <StatisticsPageCard chart={chart}></StatisticsPageCard>
+              <NoteCard note={note} handleDelete={handleDelete} />
+            </div>
+          ))}
+        </Masonry>
+      </Container>
     </motion.div>
   );
 };
