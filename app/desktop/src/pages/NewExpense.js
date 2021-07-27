@@ -25,6 +25,12 @@ const useStyles = makeStyles({
     background: blueGrey[700],
     padding: "20px 5px",
   },
+  button: {
+    backgroundColor: blueGrey[900],
+    "&:hover": {
+      backgroundColor: blueGrey[500],
+    },
+  },
 });
 
 const Expenses = () => {
@@ -78,7 +84,7 @@ const Expenses = () => {
       className={classes.form}
     >
       <Container size="sm">
-        <Typography variant="h6" color="orange" component="h2" gutterBottom>
+        <Typography variant="h6" component="h2" gutterBottom>
           Create a New Expense
         </Typography>
 
@@ -88,7 +94,6 @@ const Expenses = () => {
             onChange={(e) => setTitle(e.target.value)}
             label="Expense Description"
             variant="outlined"
-            color="orange"
             fullWidth
             required
             error={titleError}
@@ -98,7 +103,6 @@ const Expenses = () => {
             onChange={(e) => setAmount(e.target.value)}
             label="Amount"
             variant="outlined"
-            color="orange"
             multiline
             rows={4}
             fullWidth
@@ -133,7 +137,8 @@ const Expenses = () => {
 
           <Button
             type="submit"
-            color="orange"
+            color="primary"
+            className={classes.button}
             variant="contained"
             endIcon={<KeyboardArrowRightIcon />}
           >

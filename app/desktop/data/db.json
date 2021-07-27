@@ -59,6 +59,12 @@
       "category": "money",
       "amount": "45",
       "id": 10
+    },
+    {
+      "title": "This is moms expense",
+      "category": "reminders",
+      "amount": "87",
+      "id": 11
     }
   ],
   "charts": [
