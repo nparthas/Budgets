@@ -4,6 +4,7 @@ import Statistics from "./pages/Statistics";
 import Upcoming from "./pages/Upcoming";
 import Home from "./pages/Home";
 import NewExpense from "./pages/NewExpense";
+import NewChart from "./pages/NewChart";
 import Layout from "./components/Layout";
 import Preview from "./pages/Preview";
 
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/NewExpense">
             <NewExpense />
+          </Route>
+          <Route exact path="/NewChart">
+            <NewChart />
           </Route>
           <Route exact path="/Preview">
             <Preview />

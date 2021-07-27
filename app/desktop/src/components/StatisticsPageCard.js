@@ -12,7 +12,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import { DeleteOutlined } from "@material-ui/icons";
-import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
+// import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
 import { blueGrey, blue, green, pink, yellow } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
