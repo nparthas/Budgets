@@ -22,6 +22,7 @@ import { blueGrey } from "@material-ui/core/colors";
 const useStyles = makeStyles({
   table: {
     maxWidth: 290,
+    height: 437,
     maxHeight: 437,
     padding: "5px",
   },
@@ -78,7 +79,7 @@ const ExpensesCard = () => {
         <CardContent>
           <Link to="/Expenses" className={classes.link}>
             <TableContainer className={classes.table} component={Paper}>
-              <Table aria-label="simple table">
+              <Table aria-label="simple table" size="small">
                 <TableHead>
                   <TableRow>
                     <TableCell>Expense</TableCell>
