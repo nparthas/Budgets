@@ -1,10 +1,20 @@
 import ".././css/navbar.css";
 import { Link, useLocation } from "react-router-dom";
-import { IconButton } from "@material-ui/core";
+import { IconButton, makeStyles } from "@material-ui/core";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import HomeIcon from "@material-ui/icons/Home";
+import { blueGrey } from "@material-ui/core/colors";
+
+const useStyles = makeStyles({
+  button: {
+    "&:hover": {
+      background: blueGrey[500],
+    },
+  },
+});
 
 const Navbar = () => {
+  const classes = useStyles();
   const cur_path = useLocation().pathname;
   const title = cur_path.substring(1);
 
@@ -12,7 +22,7 @@ const Navbar = () => {
   if (title === "Expenses") {
     new_expense = (
       <Link to="/NewExpense">
-        <IconButton>
+        <IconButton className={classes.button} size="small">
           <AddCircleOutlineIcon />
         </IconButton>
       </Link>
@@ -23,9 +33,12 @@ const Navbar = () => {
   if (title === "Statistics") {
     new_chart = (
       <Link to="/NewChart">
-        <IconButton disableRipple={true} disableFocusRipple={true}>
+        <IconButton
+          disableRipple={true}
+          size="small"
+          className={classes.button}
+        >
           <AddCircleOutlineIcon />
-          <p>New Chart</p>
         </IconButton>
       </Link>
     );
@@ -33,7 +46,7 @@ const Navbar = () => {
 
   var home = (
     <Link to="/">
-      <IconButton disableFocusRipple={true}>
+      <IconButton className={classes.button} disableRipple={true} size="small">
         <HomeIcon />
       </IconButton>
     </Link>
