@@ -1,6 +1,7 @@
 /* Expense sheet */
 
 .table {
+  height: 550px;
   max-height: 550px;
 }
 
