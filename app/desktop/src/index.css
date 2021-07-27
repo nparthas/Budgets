@@ -7,18 +7,6 @@
   color: orange;
 }
 
-.App {
-  color: aliceblue;
-}
-
-.content {
-  /* max-width: 900px; */
-  margin: 20px auto;
-  padding: 5px 20px 20px;
-  /* height: 557px; */
-  background-color: #263238;
-}
-
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
