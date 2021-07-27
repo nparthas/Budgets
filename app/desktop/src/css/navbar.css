@@ -1,5 +1,5 @@
 .navbar {
-  padding: 15px;
+  padding: 5px 15px;
   display: flex;
   align-items: center;
   max-width: 700px;
@@ -7,7 +7,7 @@
   border-bottom: 1px solid darkgray;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: orange;
 }
 .navbar .links {
   margin-left: auto;
@@ -16,7 +16,8 @@
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
+  color: aliceblue;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: orange;
 }

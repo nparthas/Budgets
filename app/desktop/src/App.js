@@ -4,6 +4,7 @@ import Statistics from "./pages/Statistics";
 import Upcoming from "./pages/Upcoming";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import NewExpense from "./pages/NewExpense";
 
 function App() {
   const my_name = "Ben";
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route exact path="/Upcoming">
               <Upcoming />
+            </Route>
+            <Route exact path="/NewExpense">
+              <NewExpense />
             </Route>
           </Switch>
         </div>

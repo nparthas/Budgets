@@ -13,10 +13,52 @@
       "id": 2
     },
     {
-      "title": "new 2",
-      "category": "todos",
-      "amount": "100",
+      "title": "new expense",
+      "category": "reminders",
+      "amount": "95",
       "id": 3
+    },
+    {
+      "title": "a",
+      "category": "money",
+      "amount": "65",
+      "id": 4
+    },
+    {
+      "title": "b",
+      "category": "reminders",
+      "amount": "75",
+      "id": 5
+    },
+    {
+      "title": "c",
+      "category": "work",
+      "amount": "47",
+      "id": 6
+    },
+    {
+      "title": "d",
+      "category": "money",
+      "amount": "98",
+      "id": 7
+    },
+    {
+      "title": "d",
+      "category": "money",
+      "amount": "56",
+      "id": 8
+    },
+    {
+      "title": "d",
+      "category": "reminders",
+      "amount": "45",
+      "id": 9
+    },
+    {
+      "title": "des",
+      "category": "money",
+      "amount": "45",
+      "id": 10
     }
   ]
 }

@@ -11,6 +11,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
+import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   table: {
@@ -22,15 +23,14 @@ const useStyles = makeStyles({
   },
   card: {
     width: 330,
-    height: 200,
   },
   background: {
-    backgroundColor: "salmon",
+    backgroundColor: blueGrey[800],
   },
   content: {
     margin: 0,
     padding: 0,
-    maxHeight: 200,
+    maxHeight: "170px",
   },
 });
 
@@ -96,7 +96,7 @@ const StatisticsCard = (props) => {
                 fill: "#f9f9f9",
               },
             }}
-            height={270}
+            height={200}
             data={data}
             x="id"
             y="amount"

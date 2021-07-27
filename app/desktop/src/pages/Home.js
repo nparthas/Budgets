@@ -1,21 +1,32 @@
 import StatisticsCard from "../components/StatisticsCard";
 import ExpensesCard from "../components/ExpensesCard";
-import { Grid, Container } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import Masonry from "react-masonry-css";
+import UpcomingCard from "../components/UpcomingCard";
 
 const Home = () => {
+  const breakpoints = {
+    default: 2,
+    700: 1,
+  };
+
   return (
     <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={6} md={6} lg={4} key={1}>
+      <Masonry
+        breakpointCols={breakpoints}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        <div key={1}>
           <StatisticsCard type={"Statistics"}></StatisticsCard>
-        </Grid>
-        <Grid item xs={6} md={6} lg={4} key={2}>
+        </div>
+        <div key={2}>
           <ExpensesCard type={"Expenses"}></ExpensesCard>
-        </Grid>
-        <Grid item xs={6} md={6} lg={4} key={3}>
-          <StatisticsCard type={"Statistics"}></StatisticsCard>
-        </Grid>
-      </Grid>
+        </div>
+        <div key={3}>
+          <UpcomingCard type={"Upcoming"}></UpcomingCard>
+        </div>
+      </Masonry>
     </Container>
   );
 };

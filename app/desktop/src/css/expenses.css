@@ -1,5 +1,28 @@
 /* Expense sheet */
-.expenses {
-  margin-left: 20px;
-  float: left;
+
+.table {
+  max-height: 520px;
+}
+
+.bar {
+  padding: 0 20px 20px;
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+}
+
+.bar h1 {
+  color: orange;
+}
+.bar .links {
+  margin-left: auto;
+}
+.bar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  color: aliceblue;
+}
+.bar a:hover {
+  color: orange;
 }

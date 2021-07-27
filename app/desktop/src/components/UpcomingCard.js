@@ -22,18 +22,24 @@ import { blueGrey } from "@material-ui/core/colors";
 const useStyles = makeStyles({
   table: {
     maxWidth: 290,
-    maxHeight: 437,
+    maxHeight: 157,
     padding: "5px",
   },
   link: {
     textDecoration: "none",
   },
   card: {
+    width: 330,
     backgroundColor: blueGrey[800],
+  },
+  content: {
+    margin: 0,
+    padding: "0px 15px",
+    maxHeight: "190px",
   },
 });
 
-const ExpensesCard = () => {
+const UpcomingCard = () => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
@@ -59,24 +65,24 @@ const ExpensesCard = () => {
   const classes = useStyles();
   return (
     <motion.div
-      className="expense-card"
+      className="upcoming-card"
       variants={expandVariants}
       initial="hidden"
       animate="visible"
     >
       <Card elevation={2} className={classes.card}>
         <CardHeader
-          title="Expenses"
+          title="Upcoming"
           action={
-            <Link to="/NewExpense" className={classes.link}>
+            <Link to="/Upcoming" className={classes.link}>
               <IconButton>
                 <AttachMoneyIcon />
               </IconButton>
             </Link>
           }
         />
-        <CardContent>
-          <Link to="/Expenses" className={classes.link}>
+        <CardContent className={classes.content}>
+          <Link to="/Upcoming" className={classes.link}>
             <TableContainer className={classes.table} component={Paper}>
               <Table aria-label="simple table">
                 <TableHead>
@@ -104,4 +110,4 @@ const ExpensesCard = () => {
   );
 };
 
-export default ExpensesCard;
+export default UpcomingCard;
