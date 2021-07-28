@@ -1,4 +1,3 @@
-import ".././css/expenses.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Typography from "@material-ui/core/Typography";

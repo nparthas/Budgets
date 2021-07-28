@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ".././css/statistics-card.css";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
 import { useEffect, useState } from "react";
@@ -22,7 +21,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
   },
   card: {
-    width: 330,
+    width: "330px",
   },
   background: {
     backgroundColor: blueGrey[800],
