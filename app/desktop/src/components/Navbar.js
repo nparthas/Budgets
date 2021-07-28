@@ -16,7 +16,11 @@ const useStyles = makeStyles({
 const Navbar = () => {
   const classes = useStyles();
   const cur_path = useLocation().pathname;
-  const title = cur_path.substring(1);
+  var title = cur_path.substring(1);
+
+  if (title === "") {
+    title = "Home";
+  }
 
   var new_expense;
   if (title === "Expenses") {
@@ -33,11 +37,7 @@ const Navbar = () => {
   if (title === "Statistics") {
     new_chart = (
       <Link to="/NewChart">
-        <IconButton
-          disableRipple={true}
-          size="small"
-          className={classes.button}
-        >
+        <IconButton size="small" className={classes.button}>
           <AddCircleOutlineIcon />
         </IconButton>
       </Link>

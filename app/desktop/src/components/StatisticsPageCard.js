@@ -116,7 +116,7 @@ const StatisticsPageCard = ({ chart }) => {
               data={data}
               x="id"
               y="amount"
-              colorScale={"red"}
+              colorScale={"blue"}
             />
           </Link>
         </CardContent>
