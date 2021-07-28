@@ -8,13 +8,17 @@ import {
   TableRow,
   Paper,
   makeStyles,
+  IconButton,
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import EditIcon from "@material-ui/icons/Edit";
+import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   table: {
     height: "550px",
     maxHeight: "550px",
+    // background: blueGrey[700],
   },
 });
 
@@ -51,6 +55,7 @@ const Expenses = () => {
               <TableCell align="right">Id</TableCell>
               <TableCell align="right">Category</TableCell>
               <TableCell align="right">Amount</TableCell>
+              <TableCell align="right">Edit</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -62,6 +67,11 @@ const Expenses = () => {
                 <TableCell align="right">{expense.id}</TableCell>
                 <TableCell align="right">{expense.category}</TableCell>
                 <TableCell align="right">{expense.amount}</TableCell>
+                <TableCell align="right">
+                  <IconButton size="small" color="secondary">
+                    <EditIcon />
+                  </IconButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

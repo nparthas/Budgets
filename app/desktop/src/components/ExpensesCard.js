@@ -24,6 +24,7 @@ const useStyles = makeStyles({
     height: 437,
     maxHeight: 437,
     padding: "5px",
+    // background: blueGrey[100],
   },
   link: {
     textDecoration: "none",
