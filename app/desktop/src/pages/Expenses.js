@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ".././css/expenses.css";
 import {
   Table,
   TableBody,
@@ -8,11 +7,20 @@ import {
   TableHead,
   TableRow,
   Paper,
+  makeStyles,
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
 
+const useStyles = makeStyles({
+  table: {
+    height: "550px",
+    maxHeight: "550px",
+  },
+});
+
 const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
+  const classes = useStyles();
 
   useEffect(() => {
     fetch("http://localhost:8000/expenses")
@@ -36,7 +44,7 @@ const Expenses = () => {
 
   return (
     <motion.div variants={expandVariants} initial="hidden" animate="visible">
-      <TableContainer className="table" component={Paper}>
+      <TableContainer className={classes.table} component={Paper}>
         <Table aria-label="simple table" size="small">
           <TableHead>
             <TableRow>

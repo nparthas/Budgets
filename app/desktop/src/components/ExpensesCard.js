@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ".././css/expenses-card.css";
 import { Link } from "react-router-dom";
 import {
   makeStyles,
@@ -32,6 +31,11 @@ const useStyles = makeStyles({
   card: {
     backgroundColor: blueGrey[800],
   },
+  expensecard: {
+    height: "540px",
+    maxHeight: "540px",
+    width: "330px",
+  },
 });
 
 const ExpensesCard = () => {
@@ -60,7 +64,7 @@ const ExpensesCard = () => {
   const classes = useStyles();
   return (
     <motion.div
-      className="expense-card"
+      className={classes.expensecard}
       variants={expandVariants}
       initial="hidden"
       animate="visible"

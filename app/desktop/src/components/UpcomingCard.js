@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ".././css/expenses-card.css";
 import { Link } from "react-router-dom";
 import {
   makeStyles,
@@ -29,9 +28,8 @@ const useStyles = makeStyles({
     textDecoration: "none",
   },
   card: {
-    width: 330,
-    backgroundColor: blueGrey[800],
-    height: "100%",
+    width: "330px",
+    background: blueGrey[800],
   },
   content: {
     margin: 0,
@@ -64,12 +62,7 @@ const UpcomingCard = () => {
 
   const classes = useStyles();
   return (
-    <motion.div
-      className="upcoming-card"
-      variants={expandVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={expandVariants} initial="hidden" animate="visible">
       <Card elevation={2} className={classes.card}>
         <CardHeader
           title="Upcoming"
