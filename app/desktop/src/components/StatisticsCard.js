@@ -100,7 +100,7 @@ const StatisticsCard = (props) => {
             data={data}
             x="id"
             y="amount"
-            colorScale={"red"}
+            colorScale={"blue"}
           />
         </CardContent>
       </Card>
