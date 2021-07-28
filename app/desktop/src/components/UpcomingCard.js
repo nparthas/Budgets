@@ -23,6 +23,7 @@ const useStyles = makeStyles({
     maxWidth: 290,
     maxHeight: 157,
     padding: "5px",
+    // background: blueGrey[100],
   },
   link: {
     textDecoration: "none",

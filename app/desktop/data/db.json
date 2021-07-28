@@ -65,6 +65,12 @@
       "category": "reminders",
       "amount": "87",
       "id": 11
+    },
+    {
+      "title": "this is a description",
+      "category": "todos",
+      "amount": "485",
+      "id": 12
     }
   ],
   "charts": [
