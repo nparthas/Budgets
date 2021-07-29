@@ -81,7 +81,30 @@ class AccountTests(test.APITestCase, AccountMixin):
 
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertTrue('key' in response.json())
+        self.assertTrue('token' in response.json())
+
+    def test_token_auth(self):
+        self.create_verified_user()
+
+        url = reverse('rest_login')
+        data = {
+            'email': self.email,
+            'password': self.password
+        }
+
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        token = response.data['token']
+
+        self.client.logout()
+
+        url = reverse('rest_user_details')
+        response = self.client.get(
+            url, format='json', HTTP_AUTHORIZATION=f'JWT {token}')
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['email'], self.email)
 
     def test_userinfo(self):
         self.create_verified_user()
@@ -173,7 +196,7 @@ class TagTests(test.APITestCase, AccountMixin):
         self.client.logout()
 
         response = self.client.get(url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_tag_detail(self):
         Tag.objects.create(
@@ -270,7 +293,7 @@ class ExpenseTests(test.APITestCase, AccountMixin):
         self.client.logout()
 
         response = self.client.get(url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_tag_detail(self):
         expense = Expense.objects.create(
