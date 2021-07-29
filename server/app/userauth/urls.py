@@ -2,6 +2,7 @@ from allauth import account
 from allauth.account.views import ConfirmEmailView
 from django.urls import include, path
 from django.views import defaults
+from rest_framework_jwt.views import refresh_jwt_token
 
 from .views import UserDeleteView, UserVerifiedView
 
@@ -18,5 +19,6 @@ urlpatterns = [
     path('accounts-rest/registration/account-confirm-email/<str:key>/',
          confirm_email_view.as_view(), name='account_confirm_email'),
     path('user/delete/', UserDeleteView.as_view(), name='user-delete'),
-    path('verified/', UserVerifiedView.as_view())
+    path('verified/', UserVerifiedView.as_view()),
+    path('token-refresh/', refresh_jwt_token)
 ]
