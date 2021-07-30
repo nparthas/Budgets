@@ -6,6 +6,7 @@ from django.conf import settings
 from django.urls import reverse
 from id_encoder import encode_id  # pylint: disable=import-error
 from rest_framework import status, test
+from server.settings import JWT_AUTH_COOKIE  # pylint: disable=import-error
 from userauth.models import User  # pylint: disable=import-error
 
 
@@ -44,7 +45,15 @@ class AccountMixin:
 
     def create_log_in_user(self):
         self.create_verified_user()
-        self.client.login(email=self.email, password=self.password)
+
+        url = reverse('rest_login')
+        data = {
+            'email': self.email,
+            'password': self.password
+        }
+
+        response = self.client.post(url, data, format='json')
+        self.client.cookies[JWT_AUTH_COOKIE] = response.cookies[JWT_AUTH_COOKIE]  # noqa: E501
 
 
 class AccountTests(test.APITestCase, AccountMixin):
@@ -81,37 +90,13 @@ class AccountTests(test.APITestCase, AccountMixin):
 
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertTrue('token' in response.json())
-
-    def test_token_auth(self):
-        self.create_verified_user()
-
-        url = reverse('rest_login')
-        data = {
-            'email': self.email,
-            'password': self.password
-        }
-
-        response = self.client.post(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        token = response.data['token']
-
-        self.client.logout()
-
-        url = reverse('rest_user_details')
-        response = self.client.get(
-            url, format='json', HTTP_AUTHORIZATION=f'JWT {token}')
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['email'], self.email)
+        self.assertTrue('access_token' in response.json())
+        self.assertTrue('refresh_token' in response.json())
 
     def test_userinfo(self):
-        self.create_verified_user()
+        self.create_log_in_user()
 
         url = reverse('rest_user_details')
-
-        self.client.login(email=self.email, password=self.password)
 
         response = self.client.get(url, format='json')
 
