@@ -18,6 +18,7 @@ pids
 # Dependency directories
 node_modules/
 jspm_packages/
+meeting_minutes/
 
 # Optional npm cache directory
 .npm
