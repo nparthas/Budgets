@@ -20,7 +20,7 @@ import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   table: {
-    maxWidth: 290,
+    maxWidth: "98%",
     height: 437,
     maxHeight: 437,
     padding: "5px",
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   expensecard: {
     height: "540px",
     maxHeight: "540px",
-    width: "330px",
+    // width: "330px",
   },
 });
 
