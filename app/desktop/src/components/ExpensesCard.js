@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from "react";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { blueGrey } from "@material-ui/core/colors";
+import axios from "axios";
 
 const useStyles = makeStyles({
   table: {
@@ -61,6 +62,20 @@ const ExpensesCard = () => {
     },
   };
 
+  const logStuff = () => {
+    return axios
+      .get("https://google.ca")
+      .then((res) => {
+        // handle success
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        // handle error
+        console.log(err);
+      });
+  };
+
   const classes = useStyles();
   return (
     <motion.div
@@ -69,6 +84,7 @@ const ExpensesCard = () => {
       initial="hidden"
       animate="visible"
     >
+      <button onClick={logStuff}>Log Using Axios</button>
       <Card elevation={2} className={classes.card}>
         <CardHeader
           title="Expenses"
