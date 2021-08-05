@@ -9,13 +9,13 @@ function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 700,
-    maximizable: false,
+    // maximizable: false,
     backgroundColor: "#263238",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
   });
-  mainWindow.removeMenu();
+  // mainWindow.removeMenu();
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
 
