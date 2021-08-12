@@ -64,7 +64,7 @@ const ExpensesCard = () => {
 
   const logStuff = () => {
     return axios
-      .get("https://google.ca")
+      .get("http://localhost:8000/expenses")
       .then((res) => {
         // handle success
         console.log(res);

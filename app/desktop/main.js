@@ -12,6 +12,7 @@ function createWindow() {
     // maximizable: false,
     backgroundColor: "#263238",
     webPreferences: {
+      webSecurity: false,
       preload: path.join(__dirname, "preload.js"),
     },
   });
