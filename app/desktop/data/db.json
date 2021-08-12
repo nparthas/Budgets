@@ -37,40 +37,10 @@
       "id": 6
     },
     {
-      "title": "d",
-      "category": "money",
-      "amount": "98",
+      "title": "butts expense",
+      "category": "reminders",
+      "amount": "200",
       "id": 7
-    },
-    {
-      "title": "d",
-      "category": "money",
-      "amount": "56",
-      "id": 8
-    },
-    {
-      "title": "d",
-      "category": "reminders",
-      "amount": "45",
-      "id": 9
-    },
-    {
-      "title": "des",
-      "category": "money",
-      "amount": "45",
-      "id": 10
-    },
-    {
-      "title": "This is moms expense",
-      "category": "reminders",
-      "amount": "87",
-      "id": 11
-    },
-    {
-      "title": "this is a description",
-      "category": "todos",
-      "amount": "485",
-      "id": 12
     }
   ],
   "charts": [
