@@ -29,22 +29,22 @@ function App() {
             <Home expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/Expenses">
-            <Expenses />
+            <Expenses expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/Statistics">
-            <Statistics />
+            <Statistics expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/Upcoming">
-            <Upcoming />
+            <Upcoming expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/NewExpense">
-            <NewExpense />
+            <NewExpense expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/NewChart">
-            <NewChart />
+            <NewChart expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/Preview">
-            <Preview />
+            <Preview expenses={expenses} setExpenses={setExpenses} />
           </Route>
         </Switch>
       </Layout>
