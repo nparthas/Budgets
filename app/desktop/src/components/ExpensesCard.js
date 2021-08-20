@@ -14,10 +14,8 @@ import {
   CardContent,
   IconButton,
 } from "@material-ui/core";
-import { useEffect, useState } from "react";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { blueGrey } from "@material-ui/core/colors";
-import axios from "axios";
 
 const useStyles = makeStyles({
   table: {
@@ -40,17 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ExpensesCard = () => {
-  const [expenses, setExpenses] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/v1/expenses/", {
-        withCredentials: true,
-      })
-      .then((res) => console.log(res.data));
-  }, []);
-
+const ExpensesCard = (props) => {
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -94,7 +82,7 @@ const ExpensesCard = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {expenses.map((expense) => (
+                  {props.expenses.map((expense) => (
                     <TableRow key={expense.id}>
                       <TableCell component="th" scope="row">
                         {expense.title}

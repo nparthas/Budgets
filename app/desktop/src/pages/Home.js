@@ -4,7 +4,7 @@ import { Container } from "@material-ui/core";
 import Masonry from "react-masonry-css";
 import UpcomingCard from "../components/UpcomingCard";
 
-const Home = () => {
+const Home = (props) => {
   const breakpoints = {
     default: 2,
     700: 1,
@@ -21,7 +21,11 @@ const Home = () => {
           <StatisticsCard type={"Statistics"}></StatisticsCard>
         </div>
         <div key={2}>
-          <ExpensesCard type={"Expenses"}></ExpensesCard>
+          <ExpensesCard
+            type={"Expenses"}
+            expenses={props.expenses}
+            setExpenses={props.setExpenses}
+          ></ExpensesCard>
         </div>
         <div key={3}>
           <UpcomingCard type={"Upcoming"}></UpcomingCard>
