@@ -40,7 +40,7 @@ const loginToServer = () => {
     )
     .then((res) => {
       // handle success
-      console.log(res);
+      // console.log(res);
       return res;
     })
     .catch((err) => {
