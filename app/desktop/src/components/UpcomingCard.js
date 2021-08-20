@@ -41,12 +41,6 @@ const useStyles = makeStyles({
 const UpcomingCard = () => {
   const [expenses, setExpenses] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:8000/expenses")
-      .then((res) => res.json())
-      .then((data) => setExpenses(data));
-  }, []);
-
   const expandVariants = {
     hidden: {
       opacity: 0,

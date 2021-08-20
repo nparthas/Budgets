@@ -45,12 +45,10 @@ const ExpensesCard = () => {
 
   useEffect(() => {
     axios
-      // URL here
       .get("http://localhost:8000/api/v1/expenses/", {
         withCredentials: true,
       })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((res) => console.log(res.data));
   }, []);
 
   const expandVariants = {
