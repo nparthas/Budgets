@@ -44,9 +44,13 @@ const ExpensesCard = () => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/expenses")
+    axios
+      // URL here
+      .get("http://localhost:8000/api/v1/expenses/", {
+        withCredentials: true,
+      })
       .then((res) => res.json())
-      .then((data) => setExpenses(data));
+      .then((data) => console.log(data));
   }, []);
 
   const expandVariants = {
@@ -62,43 +66,6 @@ const ExpensesCard = () => {
     },
   };
 
-  const logStuff = () => {
-    return (
-      axios
-        // URL here
-        .post(
-          "http://localhost:8000/api/v1/auth/login/",
-          {
-            email: "test16@test.com",
-            password: "Qwertyu1@",
-          },
-          {
-            withCredentials: true,
-          }
-        )
-        .then((res) => {
-          // handle success
-          console.log(res);
-
-          axios
-            // URL here
-            .get("http://localhost:8000/api/v1/expenses/", {
-              withCredentials: true,
-            })
-            .then((r) => {
-              console.log(r);
-              return r;
-            });
-
-          return res;
-        })
-        .catch((err) => {
-          // handle error
-          console.log(err);
-        })
-    );
-  };
-
   const classes = useStyles();
   return (
     <motion.div
@@ -107,7 +74,6 @@ const ExpensesCard = () => {
       initial="hidden"
       animate="visible"
     >
-      <button onClick={logStuff}>Log Using Axios</button>
       <Card elevation={2} className={classes.card}>
         <CardHeader
           title="Expenses"
