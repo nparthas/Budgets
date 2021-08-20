@@ -63,17 +63,40 @@ const ExpensesCard = () => {
   };
 
   const logStuff = () => {
-    return axios
-      .get("http://localhost:8000/expenses")
-      .then((res) => {
-        // handle success
-        console.log(res);
-        return res;
-      })
-      .catch((err) => {
-        // handle error
-        console.log(err);
-      });
+    return (
+      axios
+        // URL here
+        .post(
+          "http://localhost:8000/api/v1/auth/login/",
+          {
+            email: "test16@test.com",
+            password: "Qwertyu1@",
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          // handle success
+          console.log(res);
+
+          axios
+            // URL here
+            .get("http://localhost:8000/api/v1/expenses/", {
+              withCredentials: true,
+            })
+            .then((r) => {
+              console.log(r);
+              return r;
+            });
+
+          return res;
+        })
+        .catch((err) => {
+          // handle error
+          console.log(err);
+        })
+    );
   };
 
   const classes = useStyles();
