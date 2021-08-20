@@ -7,16 +7,26 @@ import NewExpense from "./pages/NewExpense";
 import NewChart from "./pages/NewChart";
 import Layout from "./components/Layout";
 import Preview from "./pages/Preview";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
-  const my_name = "Ben";
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/v1/expenses/", {
+        withCredentials: true,
+      })
+      .then((res) => setExpenses(res.data.results));
+  }, []);
 
   return (
     <Router>
       <Layout>
         <Switch>
           <Route exact path="/">
-            <Home b={my_name} />
+            <Home expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/Expenses">
             <Expenses />
