@@ -18,7 +18,11 @@ const Home = (props) => {
         columnClassName="my-masonry-grid_column"
       >
         <div key={1}>
-          <StatisticsCard type={"Statistics"}></StatisticsCard>
+          <StatisticsCard
+            type={"Statistics"}
+            expenses={props.expenses}
+            setExpenses={props.setExpenses}
+          ></StatisticsCard>
         </div>
         <div key={2}>
           <ExpensesCard
@@ -28,7 +32,11 @@ const Home = (props) => {
           ></ExpensesCard>
         </div>
         <div key={3}>
-          <UpcomingCard type={"Upcoming"}></UpcomingCard>
+          <UpcomingCard
+            type={"Upcoming"}
+            expenses={props.expenses}
+            setExpenses={props.setExpenses}
+          ></UpcomingCard>
         </div>
       </Masonry>
     </Container>

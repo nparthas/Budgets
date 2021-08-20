@@ -85,7 +85,7 @@ const ExpensesCard = (props) => {
                   {props.expenses.map((expense) => (
                     <TableRow key={expense.id}>
                       <TableCell component="th" scope="row">
-                        {expense.title}
+                        {expense.notes}
                       </TableCell>
                       <TableCell align="right">{expense.amount}</TableCell>
                     </TableRow>
