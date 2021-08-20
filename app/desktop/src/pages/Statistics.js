@@ -7,12 +7,6 @@ import { Container } from "@material-ui/core";
 const Statistics = () => {
   const [charts, setCharts] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:8000/charts")
-      .then((res) => res.json())
-      .then((data) => setCharts(data));
-  }, []);
-
   const expandVariants = {
     hidden: {
       opacity: 0,

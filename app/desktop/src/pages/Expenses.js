@@ -26,12 +26,6 @@ const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
   const classes = useStyles();
 
-  useEffect(() => {
-    fetch("http://localhost:8000/expenses")
-      .then((res) => res.json())
-      .then((data) => setExpenses(data));
-  }, []);
-
   const expandVariants = {
     hidden: {
       opacity: 0,
