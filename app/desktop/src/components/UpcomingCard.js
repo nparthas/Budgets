@@ -14,7 +14,6 @@ import {
   CardContent,
   IconButton,
 } from "@material-ui/core";
-import { useEffect, useState } from "react";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { blueGrey } from "@material-ui/core/colors";
 
@@ -38,8 +37,8 @@ const useStyles = makeStyles({
   },
 });
 
-const UpcomingCard = () => {
-  const [expenses, setExpenses] = useState([]);
+const UpcomingCard = (props) => {
+  const expenses = props.expenses;
 
   const expandVariants = {
     hidden: {
@@ -82,7 +81,7 @@ const UpcomingCard = () => {
                   {expenses.map((expense) => (
                     <TableRow key={expense.id}>
                       <TableCell component="th" scope="row">
-                        {expense.title}
+                        {expense.notes}
                       </TableCell>
                       <TableCell align="right">{expense.amount}</TableCell>
                     </TableRow>

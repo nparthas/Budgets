@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
-import { useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -34,8 +33,6 @@ const useStyles = makeStyles({
 });
 
 const StatisticsCard = (props) => {
-  const [expenses, setExpenses] = useState([]);
-
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -54,7 +51,9 @@ const StatisticsCard = (props) => {
     return { id, amount };
   }
 
-  const data = expenses.map((expense) => addToData(expense.id, expense.amount));
+  const data = props.expenses.map((expense) =>
+    addToData(expense.amount, expense.amount)
+  );
   const classes = useStyles();
 
   return (
