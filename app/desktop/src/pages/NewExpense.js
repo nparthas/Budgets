@@ -11,7 +11,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
-import { useHistory } from "react-router-dom";
+import axios from "axios";
 import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
@@ -47,7 +47,6 @@ const Expenses = () => {
   };
 
   const classes = useStyles();
-  const history = useHistory();
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
   const [titleError, setTitleError] = useState(false);
@@ -66,12 +65,39 @@ const Expenses = () => {
       setDetailsError(true);
     }
     if (title && amount) {
-      fetch("http://localhost:8000/expenses", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ title, category, amount }),
-      }).then(() => history.push("/"));
+      postExpense();
+      // fetch("http://localhost:8000/api/v1/expenses/", {
+      //   method: "POST",
+      //   headers: { "Content-type": "application/json" },
+      //   body: JSON.stringify({ title, amount }),
+      // });
     }
+  };
+
+  const postExpense = () => {
+    return axios
+      .post(
+        "http://localhost:8000/api/v1/expenses/",
+        {
+          tags: [""],
+          date: "2021-08-20",
+          period: 1,
+          amount: amount,
+          notes: title.toString(),
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        // handle success
+        // console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        // handle error
+        console.log(err);
+      });
   };
 
   return (

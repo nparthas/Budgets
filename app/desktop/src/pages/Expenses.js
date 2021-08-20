@@ -10,7 +10,6 @@ import {
   makeStyles,
   IconButton,
 } from "@material-ui/core";
-import { useEffect, useState } from "react";
 import EditIcon from "@material-ui/icons/Edit";
 // import { blueGrey } from "@material-ui/core/colors";
 
@@ -22,8 +21,8 @@ const useStyles = makeStyles({
   },
 });
 
-const Expenses = () => {
-  const [expenses, setExpenses] = useState([]);
+const Expenses = (props) => {
+  const expenses = props.expenses;
   const classes = useStyles();
 
   const expandVariants = {
@@ -56,10 +55,10 @@ const Expenses = () => {
             {expenses.map((expense) => (
               <TableRow key={expense.id}>
                 <TableCell component="th" scope="row">
-                  {expense.title}
+                  {expense.notes}
                 </TableCell>
                 <TableCell align="right">{expense.id}</TableCell>
-                <TableCell align="right">{expense.category}</TableCell>
+                <TableCell align="right">{expense.amount}</TableCell>
                 <TableCell align="right">{expense.amount}</TableCell>
                 <TableCell align="right">
                   <IconButton size="small" color="secondary">
