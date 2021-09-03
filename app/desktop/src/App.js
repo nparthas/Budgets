@@ -13,12 +13,31 @@ import { useEffect, useState } from "react";
 function App() {
   const [expenses, setExpenses] = useState([]);
 
+  // useEffect doesnt like using something delacred outside
+  // const instance = axios.create({
+  //   withCredentials: true,
+  //   baseURL: "http://localhost:8000/api/v1/",
+  // });
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/v1/expenses/", {
-        withCredentials: true,
+    const instance = axios.create({
+      withCredentials: true,
+      baseURL: "http://localhost:8000/api/v1/",
+    });
+    instance
+      .post("auth/login/", {
+        email: "sept1@test.com",
+        password: "September1!",
       })
-      .then((res) => setExpenses(res.data.results));
+      .then((res) => {
+        // handle success
+        console.log(res);
+      })
+      .catch((err) => {
+        // handle error
+        console.log(err);
+      });
+    instance.get("expenses/").then((res) => setExpenses(res.data.results));
   }, []);
 
   return (

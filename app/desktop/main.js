@@ -20,34 +20,10 @@ function createWindow() {
   // mainWindow.removeMenu();
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
-  loginToServer();
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
-
-const loginToServer = () => {
-  return axios
-    .post(
-      "http://localhost:8000/api/v1/auth/login/",
-      {
-        email: "test16@test.com",
-        password: "Qwertyu1@",
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then((res) => {
-      // handle success
-      // console.log(res);
-      return res;
-    })
-    .catch((err) => {
-      // handle error
-      console.log(err);
-    });
-};
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
