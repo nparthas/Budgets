@@ -47,6 +47,10 @@ const Expenses = (props) => {
     },
   };
 
+  const instance = axios.create({
+    withCredentials: true,
+    baseURL: "http://localhost:8000/api/v1/",
+  });
   const classes = useStyles();
   const history = useHistory();
   const [title, setTitle] = useState("");
@@ -69,10 +73,8 @@ const Expenses = (props) => {
     if (title && amount) {
       postExpense()
         .then(() =>
-          axios
-            .get("http://localhost:8000/api/v1/expenses/", {
-              withCredentials: true,
-            })
+          instance
+            .get("expenses/")
             .then((res) => props.setExpenses(res.data.results))
         )
         .then(() => history.push("/"));
@@ -80,20 +82,14 @@ const Expenses = (props) => {
   };
 
   const postExpense = () => {
-    return axios
-      .post(
-        "http://localhost:8000/api/v1/expenses/",
-        {
-          tags: [],
-          date: "2021-08-20",
-          period: 1,
-          amount: amount,
-          notes: title.toString(),
-        },
-        {
-          withCredentials: true,
-        }
-      )
+    return instance
+      .post("expenses/", {
+        tags: [],
+        date: "2021-08-20",
+        period: 1,
+        amount: amount,
+        notes: title.toString(),
+      })
       .then((res) => {
         // handle success
         // console.log(res);
