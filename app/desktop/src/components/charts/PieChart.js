@@ -1,7 +1,7 @@
 import { Pie } from "react-chartjs-2";
 
 const PieChart = (props) => {
-  const data = props.data;
+  const data = props.info.data;
   //   console.log(data);
   return (
     <div>
@@ -33,13 +33,13 @@ const PieChart = (props) => {
           ],
         }}
         options={{
-          radius: "75",
-          aspectRatio: 2.15,
+          radius: props.info.radius,
+          aspectRatio: props.info.ar,
           responsive: true,
           maintainAspectRatio: true,
           plugins: {
             legend: {
-              display: false,
+              display: props.info.legend,
               position: "top",
             },
           },

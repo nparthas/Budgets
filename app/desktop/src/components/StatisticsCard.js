@@ -60,6 +60,7 @@ const StatisticsCard = (props) => {
   }
 
   const classes = useStyles();
+  const info = { data: data2, ar: 2.15, radius: 75, legend: false };
 
   return (
     <motion.div
@@ -80,7 +81,7 @@ const StatisticsCard = (props) => {
           }
         />
         <CardContent className={classes.content}>
-          <PieChart data={data2}></PieChart>
+          <PieChart info={info}></PieChart>
         </CardContent>
       </Card>
     </motion.div>

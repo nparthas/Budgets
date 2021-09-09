@@ -11,7 +11,7 @@ import {
 // import { DeleteOutlined } from "@material-ui/icons";
 import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
 import { blueGrey, blue, green, pink, yellow } from "@material-ui/core/colors";
-import BarChart from "./charts/BarChart";
+import ChartSelector from "./charts/ChartSelector";
 
 const useStyles = makeStyles({
   link: {
@@ -94,7 +94,7 @@ const StatisticsPageCard = (props) => {
           subheader={chart.category}
         />
         <CardContent className={classes.content}>
-          <BarChart data={data} />
+          <ChartSelector chart={chart} data={data} />
         </CardContent>
       </Card>
     </motion.div>

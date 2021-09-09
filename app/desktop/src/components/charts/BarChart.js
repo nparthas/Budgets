@@ -27,12 +27,21 @@ const BarChart = () => {
                 "rgba(255, 159, 64, 1)",
               ],
               borderWidth: 1,
+              stack: "Stack 0",
             },
             {
               label: "Quantity",
-              data: [18, 43, 6, 23, 8, 4],
+              data: [18, 23, 4, 2, 3, 4],
               backgroundColor: "orange",
               borderColor: "red",
+              stack: "Stack 0",
+            },
+            {
+              label: "Quantity2",
+              data: [18, 23, 4, 2, 3, 4],
+              backgroundColor: "blue",
+              borderColor: "red",
+              stack: "Stack 1",
             },
           ],
         }}
@@ -42,7 +51,11 @@ const BarChart = () => {
           responsive: true,
           scales: {
             y: {
+              stacked: true,
               beginAtZero: true,
+            },
+            x: {
+              stacked: true,
             },
           },
         }}
