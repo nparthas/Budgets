@@ -32,12 +32,12 @@ function App() {
       .then((res) => {
         // handle success
         console.log(res);
+        instance.get("expenses/").then((res) => setExpenses(res.data.results));
       })
       .catch((err) => {
         // handle error
         console.log(err);
       });
-    instance.get("expenses/").then((res) => setExpenses(res.data.results));
   }, []);
 
   return (

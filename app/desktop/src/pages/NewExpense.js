@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
@@ -10,7 +9,6 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { blueGrey } from "@material-ui/core/colors";
@@ -22,7 +20,7 @@ const useStyles = makeStyles({
     display: "block",
   },
   form: {
-    background: blueGrey[700],
+    background: "yellow",
     padding: "20px 5px",
   },
   button: {
@@ -109,66 +107,56 @@ const Expenses = (props) => {
       className={classes.form}
     >
       <Container size="sm">
-        <Typography variant="h6" component="h2" gutterBottom>
-          Create a New Expense
-        </Typography>
-
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-          <TextField
-            className={classes.field}
-            onChange={(e) => setTitle(e.target.value)}
-            label="Expense Description"
-            variant="outlined"
-            fullWidth
-            required
-            error={titleError}
-          />
-          <TextField
-            className={classes.field}
-            onChange={(e) => setAmount(e.target.value)}
-            label="Amount"
-            variant="outlined"
-            multiline
-            rows={4}
-            fullWidth
-            required
-            error={detailsError}
-          />
+          <fieldset>
+            <legend>Create a New Expense</legend>
+            <TextField
+              className={classes.field}
+              onChange={(e) => setTitle(e.target.value)}
+              label="Notes"
+              variant="outlined"
+              required
+              error={titleError}
+              size="small"
+            />
+            <TextField
+              className={classes.field}
+              onChange={(e) => setAmount(e.target.value)}
+              label="Expense Amount"
+              variant="outlined"
+              type="number"
+              rows={1}
+              required
+              error={detailsError}
+              size="small"
+            />
 
-          <FormControl className={classes.field}>
-            <FormLabel>Expense Category</FormLabel>
-            <RadioGroup
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+            <FormControl className={classes.field}>
+              <fieldset>
+                <legend>Expense Tags</legend>
+                <RadioGroup
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  <FormControlLabel
+                    value="money"
+                    control={<Radio />}
+                    label="Money"
+                  />
+                </RadioGroup>
+              </fieldset>
+            </FormControl>
+
+            <Button
+              type="submit"
+              color="primary"
+              className={classes.button}
+              variant="contained"
+              endIcon={<KeyboardArrowRightIcon />}
             >
-              <FormControlLabel
-                value="money"
-                control={<Radio />}
-                label="Money"
-              />
-              <FormControlLabel
-                value="todos"
-                control={<Radio />}
-                label="Todos"
-              />
-              <FormControlLabel
-                value="reminders"
-                control={<Radio />}
-                label="Reminders"
-              />
-              <FormControlLabel value="work" control={<Radio />} label="Work" />
-            </RadioGroup>
-          </FormControl>
-
-          <Button
-            type="submit"
-            color="primary"
-            className={classes.button}
-            variant="contained"
-            endIcon={<KeyboardArrowRightIcon />}
-          >
-            Submit
-          </Button>
+              Submit
+            </Button>
+          </fieldset>
         </form>
       </Container>
     </motion.div>
