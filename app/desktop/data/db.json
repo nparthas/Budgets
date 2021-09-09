@@ -45,28 +45,17 @@
   ],
   "charts": [
     {
-      "title": "Yoshi's birthday bash",
-      "category": "money",
-      "amount": "100",
-      "id": 1
-    },
-    {
-      "title": "new 1",
-      "category": "money",
-      "amount": "100",
-      "id": 2
-    },
-    {
-      "title": "new expense",
-      "category": "reminders",
-      "amount": "95",
-      "id": 3
-    },
-    {
+      "type": "Bar",
+      "startDate": "2021-05-01",
+      "endDate": "2021-09-09",
+      "timeInterval": "M",
+      "size": "sm",
+      "tags": "[all]",
+      "relativeToIncome": true,
       "title": "a",
       "category": "money",
       "amount": "65",
-      "id": 4
+      "id": 1
     }
   ]
 }

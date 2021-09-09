@@ -63,7 +63,7 @@ const StatisticsPageCard = ({ chart }) => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/expenses")
+    fetch("http://localhost:9000/expenses")
       .then((res) => res.json())
       .then((data) => setExpenses(data));
   }, []);
