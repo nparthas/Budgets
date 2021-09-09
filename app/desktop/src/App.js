@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
+  const [tags, setTags] = useState([]);
 
   // useEffect doesnt like using something delacred outside
   // const instance = axios.create({
@@ -26,13 +27,14 @@ function App() {
     });
     instance
       .post("auth/login/", {
-        email: "sept1@test.com",
-        password: "September1!",
+        email: "sept8@test.com",
+        password: "September8!",
       })
       .then((res) => {
         // handle success
         console.log(res);
         instance.get("expenses/").then((res) => setExpenses(res.data.results));
+        instance.get("tags/").then((res) => setTags(res.data.results));
       })
       .catch((err) => {
         // handle error
@@ -57,7 +59,11 @@ function App() {
             <Upcoming expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/NewExpense">
-            <NewExpense expenses={expenses} setExpenses={setExpenses} />
+            <NewExpense
+              expenses={expenses}
+              setExpenses={setExpenses}
+              tags={tags}
+            />
           </Route>
           <Route exact path="/NewChart">
             <NewChart expenses={expenses} setExpenses={setExpenses} />

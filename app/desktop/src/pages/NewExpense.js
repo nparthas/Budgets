@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import { makeStyles } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
+import {
+  makeStyles,
+  Button,
+  Container,
+  TextField,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { blueGrey } from "@material-ui/core/colors";
@@ -170,11 +172,14 @@ const Expenses = (props) => {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <FormControlLabel
-                    value="money"
-                    control={<Radio />}
-                    label="Money"
-                  />
+                  {props.tags.map((tag) => (
+                    <FormControlLabel
+                      id={tag.id}
+                      value={tag.name}
+                      control={<Radio />}
+                      label={tag.name}
+                    />
+                  ))}
                 </RadioGroup>
               </fieldset>
             </FormControl>
