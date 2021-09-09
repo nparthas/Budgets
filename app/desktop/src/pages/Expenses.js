@@ -8,9 +8,7 @@ import {
   TableRow,
   Paper,
   makeStyles,
-  IconButton,
 } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
 // import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
@@ -45,10 +43,10 @@ const Expenses = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>Expense</TableCell>
+              <TableCell align="right">Date</TableCell>
               <TableCell align="right">Id</TableCell>
-              <TableCell align="right">Category</TableCell>
+              <TableCell align="right">Tags</TableCell>
               <TableCell align="right">Amount</TableCell>
-              <TableCell align="right">Edit</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -57,14 +55,10 @@ const Expenses = (props) => {
                 <TableCell component="th" scope="row">
                   {expense.notes}
                 </TableCell>
+                <TableCell align="right">{expense.date}</TableCell>
                 <TableCell align="right">{expense.id}</TableCell>
+                <TableCell align="right">{expense.tags}</TableCell>
                 <TableCell align="right">{expense.amount}</TableCell>
-                <TableCell align="right">{expense.amount}</TableCell>
-                <TableCell align="right">
-                  <IconButton size="small" color="secondary">
-                    <EditIcon />
-                  </IconButton>
-                </TableCell>
               </TableRow>
             ))}
           </TableBody>

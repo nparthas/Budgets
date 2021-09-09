@@ -20,7 +20,8 @@ const useStyles = makeStyles({
     display: "block",
   },
   form: {
-    background: "yellow",
+    width: "400px",
+    background: "grey",
     padding: "20px 5px",
   },
   button: {
@@ -55,7 +56,8 @@ const Expenses = (props) => {
   const [amount, setAmount] = useState(0);
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
-  const [category, setCategory] = useState("money");
+  const [category, setCategory] = useState("");
+  const [expenseDate, setExpenseDate] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,8 +84,8 @@ const Expenses = (props) => {
   const postExpense = () => {
     return instance
       .post("expenses/", {
-        tags: [],
-        date: "2021-08-20",
+        tags: [category.toString()],
+        date: expenseDate,
         period: 1,
         amount: amount,
         notes: title.toString(),
@@ -113,6 +115,15 @@ const Expenses = (props) => {
             <TextField
               className={classes.field}
               onChange={(e) => setTitle(e.target.value)}
+              label="Name"
+              variant="outlined"
+              required
+              error={titleError}
+              size="small"
+            />
+            <TextField
+              // className={classes.field}
+              // onChange={(e) => setTitle(e.target.value)}
               label="Notes"
               variant="outlined"
               required
@@ -122,12 +133,21 @@ const Expenses = (props) => {
             <TextField
               className={classes.field}
               onChange={(e) => setAmount(e.target.value)}
-              label="Expense Amount"
+              label="Amount"
               variant="outlined"
               type="number"
               rows={1}
               required
               error={detailsError}
+              size="small"
+            />
+            <TextField
+              className={classes.field}
+              onChange={(e) => setExpenseDate(e.target.value)}
+              type="date"
+              variant="outlined"
+              required
+              error={titleError}
               size="small"
             />
 
