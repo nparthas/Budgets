@@ -1,5 +1,5 @@
 import { Bar } from "react-chartjs-2";
-import "chartjs-plugin-colorschemes";
+// import { RdYlGn6 } from "chartjs-plugin-colorschemes/src/colorschemes/colorschemes.brewer";
 
 const BarChart = (props) => {
   const data = props.info.data;
@@ -13,14 +13,16 @@ const BarChart = (props) => {
             {
               label: "# of Votes",
               data: data,
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
+              backgroundColor:
+                // RdYlGn6,
+                [
+                  "rgba(255, 99, 132, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(255, 206, 86, 0.2)",
+                  "rgba(75, 192, 192, 0.2)",
+                  "rgba(153, 102, 255, 0.2)",
+                  "rgba(255, 159, 64, 0.2)",
+                ],
               borderColor: [
                 "rgba(255, 99, 132, 1)",
                 "rgba(54, 162, 235, 1)",
@@ -35,16 +37,16 @@ const BarChart = (props) => {
             {
               label: "Quantity",
               data: data,
-              backgroundColor: "orange",
-              borderColor: "red",
-              stack: "Stack 0",
+              backgroundColor: ["orange", "green"],
+              borderColor: ["red", "green"],
+              stack: "Stack 1",
             },
             {
               label: "Quantity2",
               data: data,
-              backgroundColor: "blue",
-              borderColor: "red",
-              stack: "Stack 1",
+              backgroundColor: ["blue", "red"],
+              borderColor: ["red", "blue"],
+              stack: "Stack 3",
             },
           ],
         }}
@@ -64,9 +66,6 @@ const BarChart = (props) => {
           plugins: {
             legend: {
               display: props.info.legend,
-            },
-            colorschemes: {
-              scheme: "brewer.Paired12",
             },
           },
         }}
