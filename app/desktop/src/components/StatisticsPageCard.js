@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
-import { useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -13,6 +12,7 @@ import {
 import { DeleteOutlined } from "@material-ui/icons";
 // import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
 import { blueGrey, blue, green, pink, yellow } from "@material-ui/core/colors";
+import BarChart from "./charts/BarChart";
 
 const useStyles = makeStyles({
   link: {
@@ -58,15 +58,10 @@ const expandVariants = {
   },
 };
 
-const StatisticsPageCard = ({ chart }) => {
-  const classes = useStyles(chart);
-  const [expenses, setExpenses] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:9000/expenses")
-      .then((res) => res.json())
-      .then((data) => setExpenses(data));
-  }, []);
+const StatisticsPageCard = (props) => {
+  const classes = useStyles(props.chart);
+  const expenses = props.expenses;
+  const chart = props.chart;
 
   function addToData(id, amt) {
     const amount = parseInt(amt);
@@ -117,6 +112,13 @@ const StatisticsPageCard = ({ chart }) => {
               y="amount"
               colorScale={"blue"}
             />
+          </Link>
+        </CardContent>
+      </Card>
+      <Card elevation={2} className={classes.background}>
+        <CardContent className={classes.content}>
+          <Link to="/Preview" className={classes.link}>
+            <BarChart />
           </Link>
         </CardContent>
       </Card>

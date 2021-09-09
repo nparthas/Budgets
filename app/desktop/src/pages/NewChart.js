@@ -1,18 +1,12 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import {
   makeStyles,
-  Button,
   InputLabel,
   TextField,
   Select,
   MenuItem,
-  FormControlLabel,
   FormControl,
   Typography,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({

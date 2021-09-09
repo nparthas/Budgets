@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import { Container } from "@material-ui/core";
 
-const Statistics = () => {
+const Statistics = (props) => {
   const [charts, setCharts] = useState([]);
 
   useEffect(() => {
@@ -42,7 +42,10 @@ const Statistics = () => {
         >
           {charts.map((chart) => (
             <div key={chart.id}>
-              <StatisticsPageCard chart={chart}></StatisticsPageCard>
+              <StatisticsPageCard
+                chart={chart}
+                expenses={props.expenses}
+              ></StatisticsPageCard>
             </div>
           ))}
         </Masonry>
