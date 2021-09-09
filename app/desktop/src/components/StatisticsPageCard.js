@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { VictoryPie } from "victory";
 import {
   Card,
   CardHeader,

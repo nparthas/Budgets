@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { VictoryPie } from "victory";
 import {
   Card,
   CardHeader,
@@ -10,6 +9,7 @@ import {
 } from "@material-ui/core";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import { blueGrey } from "@material-ui/core/colors";
+import PieChart from "./charts/PieChart";
 
 const useStyles = makeStyles({
   table: {
@@ -75,24 +75,7 @@ const StatisticsCard = (props) => {
           }
         />
         <CardContent className={classes.content}>
-          <VictoryPie
-            style={{
-              data: {
-                fillOpacity: 0.9,
-                stroke: "#f9f9f9",
-                strokeWidth: 2,
-              },
-              labels: {
-                fontSize: 20,
-                fill: "#f9f9f9",
-              },
-            }}
-            height={200}
-            data={data}
-            x="id"
-            y="amount"
-            colorScale={"blue"}
-          />
+          <PieChart data={data}></PieChart>
         </CardContent>
       </Card>
     </motion.div>
