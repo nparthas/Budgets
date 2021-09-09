@@ -2,13 +2,14 @@ import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 
 const ChartSelector = (props) => {
+  const data = [5, 8, 3, 5, 7, 3];
   var type = props.chart.type;
   var Chart;
   if (type === "Bar") {
-    Chart = <BarChart chart={props.chart} />;
+    Chart = <BarChart data={data} chart={props.chart} />;
   } else if (type === "Pie") {
     const info = {
-      data: [24, 26, 31, 14, 6],
+      data: data,
       ar: 1.8,
       radius: 75,
       legend: false,

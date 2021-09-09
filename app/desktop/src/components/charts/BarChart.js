@@ -1,6 +1,6 @@
 import { Bar } from "react-chartjs-2";
 
-const BarChart = () => {
+const BarChart = (props) => {
   return (
     <div>
       <Bar
@@ -9,7 +9,7 @@ const BarChart = () => {
           datasets: [
             {
               label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
+              data: props.data,
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
@@ -31,14 +31,14 @@ const BarChart = () => {
             },
             {
               label: "Quantity",
-              data: [18, 23, 4, 2, 3, 4],
+              data: props.data,
               backgroundColor: "orange",
               borderColor: "red",
               stack: "Stack 0",
             },
             {
               label: "Quantity2",
-              data: [18, 23, 4, 2, 3, 4],
+              data: props.data,
               backgroundColor: "blue",
               borderColor: "red",
               stack: "Stack 1",

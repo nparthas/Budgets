@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import BarChart from "../components/charts/BarChart";
 
-const Statistics = () => {
+const Preview = () => {
+  const data = [3, 5, 6, 7, 3, 8];
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -22,9 +23,9 @@ const Statistics = () => {
       initial="hidden"
       animate="visible"
     >
-      <BarChart />
+      <BarChart data={data} />
     </motion.div>
   );
 };
 
-export default Statistics;
+export default Preview;
