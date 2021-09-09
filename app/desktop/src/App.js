@@ -32,7 +32,7 @@ function App() {
       })
       .then((res) => {
         // handle success
-        console.log(res);
+        // console.log(res);
         instance.get("expenses/").then((res) => setExpenses(res.data.results));
         instance.get("tags/").then((res) => setTags(res.data.results));
       })

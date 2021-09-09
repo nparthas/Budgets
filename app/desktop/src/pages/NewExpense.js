@@ -174,7 +174,7 @@ const Expenses = (props) => {
                 >
                   {props.tags.map((tag) => (
                     <FormControlLabel
-                      id={tag.id}
+                      key={tag.id}
                       value={tag.name}
                       control={<Radio />}
                       label={tag.name}
