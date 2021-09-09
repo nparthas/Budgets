@@ -3,6 +3,8 @@ import BarChart from "../components/charts/BarChart";
 
 const Preview = () => {
   const data = [3, 5, 6, 7, 3, 8];
+  const info = { data: data, ar: 1.85, radius: 75, legend: true };
+
   const expandVariants = {
     hidden: {
       opacity: 0,
@@ -23,7 +25,7 @@ const Preview = () => {
       initial="hidden"
       animate="visible"
     >
-      <BarChart data={data} />
+      <BarChart info={info} />
     </motion.div>
   );
 };
