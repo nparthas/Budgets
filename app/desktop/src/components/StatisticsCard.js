@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   content: {
     margin: 0,
     padding: 0,
-    maxHeight: "170px",
+    // maxHeight: "170px",
   },
 });
 
@@ -48,12 +48,17 @@ const StatisticsCard = (props) => {
 
   function addToData(id, amt) {
     const amount = parseInt(amt);
-    return { id, amount };
+    return { amount };
   }
 
   const data = props.expenses.map((expense) =>
     addToData(expense.amount, expense.amount)
   );
+  var data2 = [];
+  for (var i in data) {
+    data2.push(data[i].amount);
+  }
+
   const classes = useStyles();
 
   return (
@@ -75,7 +80,7 @@ const StatisticsCard = (props) => {
           }
         />
         <CardContent className={classes.content}>
-          <PieChart data={data}></PieChart>
+          <PieChart data={data2}></PieChart>
         </CardContent>
       </Card>
     </motion.div>

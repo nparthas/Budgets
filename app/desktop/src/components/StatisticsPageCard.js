@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     backgroundColor: blueGrey[800],
   },
   content: {
-    margin: 0,
+    margin: "0px 15px",
     padding: 0,
   },
   avatar: {
@@ -94,7 +94,7 @@ const StatisticsPageCard = (props) => {
           subheader={chart.category}
         />
         <CardContent className={classes.content}>
-          <BarChart />
+          <BarChart data={data} />
         </CardContent>
       </Card>
     </motion.div>

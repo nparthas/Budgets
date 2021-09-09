@@ -4,8 +4,6 @@ const BarChart = () => {
   return (
     <div>
       <Bar
-        height={400}
-        width={600}
         data={{
           labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
           datasets: [
@@ -39,6 +37,9 @@ const BarChart = () => {
           ],
         }}
         options={{
+          aspectRatio: 2,
+          maintainAspectRatio: true,
+          responsive: true,
           scales: {
             y: {
               beginAtZero: true,

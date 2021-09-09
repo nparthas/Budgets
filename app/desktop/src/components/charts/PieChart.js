@@ -1,16 +1,17 @@
 import { Pie } from "react-chartjs-2";
 
 const PieChart = (props) => {
+  const data = props.data;
+  //   console.log(data);
   return (
     <div>
       <Pie
-        radius="1"
         data={{
           labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
           datasets: [
             {
               label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
+              data: data,
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
@@ -31,7 +32,18 @@ const PieChart = (props) => {
             },
           ],
         }}
-        options={{}}
+        options={{
+          radius: "75",
+          aspectRatio: 2.15,
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              display: false,
+              position: "top",
+            },
+          },
+        }}
       />
     </div>
   );
