@@ -29,13 +29,13 @@ const useStyles = makeStyles({
   },
   avatar: {
     backgroundColor: (note) => {
-      if (note.category === "work") {
+      if (note.category === "Work") {
         return yellow[700];
       }
-      if (note.category === "money") {
+      if (note.category === "Money") {
         return green[500];
       }
-      if (note.category === "todos") {
+      if (note.category === "Todos") {
         return pink[500];
       }
       return blue[500];
@@ -94,7 +94,7 @@ const StatisticsPageCard = (props) => {
           subheader={chart.category}
         />
         <CardContent className={classes.content}>
-          <ChartSelector chart={chart} data={data} />
+          <ChartSelector expenses={props.expenses} chart={chart} data={data} />
         </CardContent>
       </Card>
     </motion.div>

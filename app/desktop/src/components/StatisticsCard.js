@@ -58,9 +58,9 @@ const StatisticsCard = (props) => {
   for (var i in data) {
     data2.push(data[i].amount);
   }
+  const info = { data: data2, ar: 2.15, radius: 75, legend: false };
 
   const classes = useStyles();
-  const info = { data: data2, ar: 2.15, radius: 75, legend: false };
 
   return (
     <motion.div
