@@ -20,11 +20,19 @@ const useStyles = makeStyles({
     display: "block",
   },
   form: {
-    width: "400px",
+    width: "350px",
     background: "grey",
     padding: "20px 5px",
   },
   button: {
+    marginRight: "20px",
+    backgroundColor: blueGrey[900],
+    "&:hover": {
+      backgroundColor: blueGrey[500],
+    },
+  },
+  button_right: {
+    float: "right",
     backgroundColor: blueGrey[900],
     "&:hover": {
       backgroundColor: blueGrey[500],
@@ -118,6 +126,7 @@ const Expenses = (props) => {
               label="Name"
               variant="outlined"
               required
+              fullWidth
               error={titleError}
               size="small"
             />
@@ -127,6 +136,7 @@ const Expenses = (props) => {
               label="Notes"
               variant="outlined"
               required
+              fullWidth
               error={titleError}
               size="small"
             />
@@ -138,6 +148,7 @@ const Expenses = (props) => {
               type="number"
               rows={1}
               required
+              fullWidth
               error={detailsError}
               size="small"
             />
@@ -147,6 +158,7 @@ const Expenses = (props) => {
               type="date"
               variant="outlined"
               required
+              fullWidth
               error={titleError}
               size="small"
             />
@@ -166,11 +178,18 @@ const Expenses = (props) => {
                 </RadioGroup>
               </fieldset>
             </FormControl>
-
+            <Button
+              type="reset"
+              color="primary"
+              className={classes.button}
+              variant="contained"
+            >
+              Reset
+            </Button>
             <Button
               type="submit"
               color="primary"
-              className={classes.button}
+              className={classes.button_right}
               variant="contained"
               endIcon={<KeyboardArrowRightIcon />}
             >
