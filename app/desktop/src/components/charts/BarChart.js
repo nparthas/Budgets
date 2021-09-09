@@ -1,4 +1,5 @@
 import { Bar } from "react-chartjs-2";
+import "chartjs-plugin-colorschemes";
 
 const BarChart = (props) => {
   const data = props.info.data;
@@ -63,6 +64,9 @@ const BarChart = (props) => {
           plugins: {
             legend: {
               display: props.info.legend,
+            },
+            colorschemes: {
+              scheme: "brewer.Paired12",
             },
           },
         }}
