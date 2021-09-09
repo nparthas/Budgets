@@ -9,8 +9,8 @@ import {
   makeStyles,
   Avatar,
 } from "@material-ui/core";
-import { DeleteOutlined } from "@material-ui/icons";
-// import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
+// import { DeleteOutlined } from "@material-ui/icons";
+import ZoomOutMapIcon from "@material-ui/icons/ZoomOutMap";
 import { blueGrey, blue, green, pink, yellow } from "@material-ui/core/colors";
 import BarChart from "./charts/BarChart";
 
@@ -85,41 +85,17 @@ const StatisticsPageCard = (props) => {
             </Avatar>
           }
           action={
-            <IconButton>
-              <DeleteOutlined />
-            </IconButton>
+            <Link to="/Preview" className={classes.link}>
+              <IconButton>
+                <ZoomOutMapIcon />
+              </IconButton>
+            </Link>
           }
           title={chart.title}
           subheader={chart.category}
         />
         <CardContent className={classes.content}>
-          <Link to="/Preview" className={classes.link}>
-            <VictoryPie
-              style={{
-                data: {
-                  fillOpacity: 0.9,
-                  stroke: "#f9f9f9",
-                  strokeWidth: 2,
-                },
-                labels: {
-                  fontSize: 20,
-                  fill: "#f9f9f9",
-                },
-              }}
-              height={200}
-              data={data}
-              x="id"
-              y="amount"
-              colorScale={"blue"}
-            />
-          </Link>
-        </CardContent>
-      </Card>
-      <Card elevation={2} className={classes.background}>
-        <CardContent className={classes.content}>
-          <Link to="/Preview" className={classes.link}>
-            <BarChart />
-          </Link>
+          <BarChart />
         </CardContent>
       </Card>
     </motion.div>

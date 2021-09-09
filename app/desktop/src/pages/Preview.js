@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import BarChart from "../components/charts/BarChart";
 
 const Statistics = () => {
   const expandVariants = {
@@ -21,7 +22,7 @@ const Statistics = () => {
       initial="hidden"
       animate="visible"
     >
-      <p>this is a graph Preview</p>
+      <BarChart />
     </motion.div>
   );
 };
