@@ -69,6 +69,58 @@
       "category": "Reminder",
       "amount": "65",
       "id": 1
+    },
+    {
+      "type": "Bar",
+      "startDate": "2021-05-01",
+      "endDate": "2021-09-09",
+      "timeInterval": "M",
+      "size": "sm",
+      "tags": "[all]",
+      "relativeToIncome": true,
+      "title": "Bar",
+      "category": "Money",
+      "amount": "65",
+      "id": 1
+    },
+    {
+      "type": "Pie",
+      "startDate": "2021-05-01",
+      "endDate": "2021-09-09",
+      "timeInterval": "M",
+      "size": "sm",
+      "tags": "[all]",
+      "relativeToIncome": true,
+      "title": "Pie",
+      "category": "Reminder",
+      "amount": "65",
+      "id": 1
+    },
+    {
+      "type": "Bar",
+      "startDate": "2021-05-01",
+      "endDate": "2021-09-09",
+      "timeInterval": "M",
+      "size": "sm",
+      "tags": "[all]",
+      "relativeToIncome": true,
+      "title": "Bar",
+      "category": "Money",
+      "amount": "65",
+      "id": 1
+    },
+    {
+      "type": "Pie",
+      "startDate": "2021-05-01",
+      "endDate": "2021-09-09",
+      "timeInterval": "M",
+      "size": "sm",
+      "tags": "[all]",
+      "relativeToIncome": true,
+      "title": "Pie",
+      "category": "Reminder",
+      "amount": "65",
+      "id": 1
     }
   ]
 }
