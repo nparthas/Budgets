@@ -84,7 +84,7 @@ const StatisticsPageCard = (props) => {
             </Avatar>
           }
           action={
-            <Link to="/Preview" className={classes.link}>
+            <Link to={`/Preview/${chart.id}`} className={classes.link}>
               <IconButton>
                 <ZoomOutMapIcon />
               </IconButton>

@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
+  const [charts, setCharts] = useState([]);
   const [tags, setTags] = useState([]);
 
   // useEffect doesnt like using something delacred outside
@@ -34,7 +35,13 @@ function App() {
         // handle success
         // console.log(res);
         instance.get("expenses/").then((res) => setExpenses(res.data.results));
+        // Set charts future
+        // instance.get("charts/").then((res) => setCharts(res.data.results));
         instance.get("tags/").then((res) => setTags(res.data.results));
+        // setCharts for now
+        fetch("http://localhost:9000/charts")
+          .then((res) => res.json())
+          .then((data) => setCharts(data));
       })
       .catch((err) => {
         // handle error
@@ -53,7 +60,12 @@ function App() {
             <Expenses expenses={expenses} setExpenses={setExpenses} />
           </Route>
           <Route exact path="/Statistics">
-            <Statistics expenses={expenses} setExpenses={setExpenses} />
+            <Statistics
+              expenses={expenses}
+              setExpenses={setExpenses}
+              charts={charts}
+              setCharts={setCharts}
+            />
           </Route>
           <Route exact path="/Upcoming">
             <Upcoming expenses={expenses} setExpenses={setExpenses} />
@@ -68,8 +80,12 @@ function App() {
           <Route exact path="/NewChart">
             <NewChart expenses={expenses} setExpenses={setExpenses} />
           </Route>
-          <Route exact path="/Preview">
-            <Preview expenses={expenses} setExpenses={setExpenses} />
+          <Route exact path="/Preview/:id">
+            <Preview
+              expenses={expenses}
+              setExpenses={setExpenses}
+              charts={charts}
+            />
           </Route>
         </Switch>
       </Layout>

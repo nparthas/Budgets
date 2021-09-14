@@ -68,7 +68,7 @@
       "title": "Pie",
       "category": "Reminder",
       "amount": "65",
-      "id": 1
+      "id": 2
     },
     {
       "type": "Bar",
@@ -81,7 +81,7 @@
       "title": "Bar",
       "category": "Money",
       "amount": "65",
-      "id": 1
+      "id": 3
     },
     {
       "type": "Pie",
@@ -94,7 +94,7 @@
       "title": "Pie",
       "category": "Reminder",
       "amount": "65",
-      "id": 1
+      "id": 4
     },
     {
       "type": "Bar",
@@ -107,7 +107,7 @@
       "title": "Bar",
       "category": "Money",
       "amount": "65",
-      "id": 1
+      "id": 5
     },
     {
       "type": "Pie",
@@ -120,7 +120,7 @@
       "title": "Pie",
       "category": "Reminder",
       "amount": "65",
-      "id": 1
+      "id": 6
     }
   ]
 }

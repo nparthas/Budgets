@@ -1,17 +1,10 @@
 import { motion } from "framer-motion";
 import StatisticsPageCard from "../components/StatisticsPageCard";
-import { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import { Container } from "@material-ui/core";
 
 const Statistics = (props) => {
-  const [charts, setCharts] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:9000/charts")
-      .then((res) => res.json())
-      .then((data) => setCharts(data));
-  }, []);
+  const charts = props.charts;
 
   const expandVariants = {
     hidden: {
