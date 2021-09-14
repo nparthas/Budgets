@@ -7,7 +7,7 @@ const PieChart = (props) => {
     <div>
       <Pie
         data={{
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: ["Red", "Blue", "Yellow"],
           datasets: [
             {
               label: "# of Votes",

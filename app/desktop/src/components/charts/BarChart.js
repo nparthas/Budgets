@@ -1,5 +1,5 @@
 import { Bar } from "react-chartjs-2";
-import { RdYlGn6 } from "chartjs-plugin-colorschemes/src/colorschemes/colorschemes.brewer";
+// import { RdYlGn6 } from "chartjs-plugin-colorschemes/src/colorschemes/colorschemes.brewer";
 
 const BarChart = (props) => {
   const data = props.info.data;

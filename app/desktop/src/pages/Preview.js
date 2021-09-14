@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { useParams } from "react-router";
-import BarChart from "../components/charts/BarChart";
+import ChartSelector from "../components/charts/ChartSelector";
+import { useState, useEffect } from "react";
 
-const Preview = () => {
-  const data = [3, 5, 6, 7, 3, 8];
-  const info = { data: data, ar: 1.85, radius: 75, legend: true };
+const Preview = (props) => {
   const { id } = useParams();
+  const [chart, setChart] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:9000/charts/${id}`)
+      .then((res) => res.json())
+      .then((data) => setChart(data));
+  }, [id]);
 
   const expandVariants = {
     hidden: {
@@ -27,8 +33,7 @@ const Preview = () => {
       initial="hidden"
       animate="visible"
     >
-      <h1>{id}</h1>
-      <BarChart info={info} />
+      <ChartSelector expenses={props.expenses} chart={chart} />
     </motion.div>
   );
 };

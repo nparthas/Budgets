@@ -12,7 +12,12 @@ const ChartSelector = (props) => {
   for (var i in data) {
     data2.push(data[i].amount);
   }
-  const info = { data: data2, ar: 1.85, radius: 75, legend: false };
+  const info = {
+    data: data2,
+    ar: 1.85,
+    radius: 75,
+    legend: props.chart.legend,
+  };
 
   var type = props.chart.type;
   var Chart;
