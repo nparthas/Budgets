@@ -3,8 +3,10 @@ import Navbar from "./Navbar";
 
 const useStyles = makeStyles({
   page: {
-    margin: "20px auto",
-    padding: "5px 20px 20px",
+    marginTop: "20px",
+    marginLeft: "20px",
+    marginRight: "20px",
+    // padding: "5px 20px 20px",
   },
 });
 

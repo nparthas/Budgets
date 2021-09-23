@@ -19,16 +19,14 @@ import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   table: {
-    maxWidth: "98%",
-    maxHeight: 157,
-    padding: "5px",
+    maxWidth: "100%",
+    maxHeight: 160,
     // background: blueGrey[100],
   },
   link: {
     textDecoration: "none",
   },
   card: {
-    // width: "330px",
     background: blueGrey[800],
   },
   content: {

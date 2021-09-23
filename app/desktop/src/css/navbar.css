@@ -1,8 +1,9 @@
 .navbar {
-  padding: 5px 15px;
+  padding: 0px 15px;
   display: flex;
   align-items: center;
   max-width: 95%;
+  height: 50px;
   /* 700px */
   margin: 0 auto;
   border-bottom: 1px solid darkgray;

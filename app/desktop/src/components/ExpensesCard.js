@@ -19,10 +19,9 @@ import { blueGrey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   table: {
-    maxWidth: "98%",
-    height: 437,
-    maxHeight: 437,
-    padding: "5px",
+    maxWidth: "100%",
+    height: 440,
+    maxHeight: 440,
     // background: blueGrey[100],
   },
   link: {
@@ -35,6 +34,10 @@ const useStyles = makeStyles({
     height: "540px",
     maxHeight: "540px",
     // width: "330px",
+  },
+  content: {
+    margin: 0,
+    padding: "0px 15px",
   },
 });
 
@@ -71,7 +74,7 @@ const ExpensesCard = (props) => {
             </Link>
           }
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Link to="/Expenses" className={classes.link}>
             <TableContainer className={classes.table} component={Paper}>
               <Table aria-label="simple table" size="small">
@@ -82,6 +85,22 @@ const ExpensesCard = (props) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
+                  {props.expenses.map((expense) => (
+                    <TableRow key={expense.id}>
+                      <TableCell component="th" scope="row">
+                        {expense.notes}
+                      </TableCell>
+                      <TableCell align="right">{expense.amount}</TableCell>
+                    </TableRow>
+                  ))}
+                  {props.expenses.map((expense) => (
+                    <TableRow key={expense.id}>
+                      <TableCell component="th" scope="row">
+                        {expense.notes}
+                      </TableCell>
+                      <TableCell align="right">{expense.amount}</TableCell>
+                    </TableRow>
+                  ))}
                   {props.expenses.map((expense) => (
                     <TableRow key={expense.id}>
                       <TableCell component="th" scope="row">

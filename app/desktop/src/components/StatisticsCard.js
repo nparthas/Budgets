@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
   },
   card: {
-    width: "330px",
+    // width: "330px",
   },
   background: {
     backgroundColor: blueGrey[800],
@@ -28,7 +28,6 @@ const useStyles = makeStyles({
   content: {
     margin: 0,
     padding: 0,
-    // maxHeight: "170px",
   },
 });
 
