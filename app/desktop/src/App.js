@@ -9,11 +9,29 @@ import Layout from "./components/Layout";
 import Preview from "./pages/Preview";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [charts, setCharts] = useState([]);
   const [tags, setTags] = useState([]);
+
+  const theme = createTheme({});
+
+  theme.overrides = {
+    MuiCardHeader: {
+      root: {
+        padding: "16px 16px 6px",
+      },
+    },
+    MuiCardContent: {
+      root: {
+        "&:last-child": {
+          paddingBottom: "15px",
+        },
+      },
+    },
+  };
 
   // useEffect doesnt like using something delacred outside
   // const instance = axios.create({
@@ -50,46 +68,48 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Layout>
-        <Switch>
-          <Route exact path="/">
-            <Home expenses={expenses} setExpenses={setExpenses} />
-          </Route>
-          <Route exact path="/Expenses">
-            <Expenses expenses={expenses} setExpenses={setExpenses} />
-          </Route>
-          <Route exact path="/Statistics">
-            <Statistics
-              expenses={expenses}
-              setExpenses={setExpenses}
-              charts={charts}
-              setCharts={setCharts}
-            />
-          </Route>
-          <Route exact path="/Upcoming">
-            <Upcoming expenses={expenses} setExpenses={setExpenses} />
-          </Route>
-          <Route exact path="/NewExpense">
-            <NewExpense
-              expenses={expenses}
-              setExpenses={setExpenses}
-              tags={tags}
-            />
-          </Route>
-          <Route exact path="/NewChart">
-            <NewChart expenses={expenses} setExpenses={setExpenses} />
-          </Route>
-          <Route exact path="/Preview/:id">
-            <Preview
-              expenses={expenses}
-              setExpenses={setExpenses}
-              charts={charts}
-            />
-          </Route>
-        </Switch>
-      </Layout>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route exact path="/">
+              <Home expenses={expenses} setExpenses={setExpenses} />
+            </Route>
+            <Route exact path="/Expenses">
+              <Expenses expenses={expenses} setExpenses={setExpenses} />
+            </Route>
+            <Route exact path="/Statistics">
+              <Statistics
+                expenses={expenses}
+                setExpenses={setExpenses}
+                charts={charts}
+                setCharts={setCharts}
+              />
+            </Route>
+            <Route exact path="/Upcoming">
+              <Upcoming expenses={expenses} setExpenses={setExpenses} />
+            </Route>
+            <Route exact path="/NewExpense">
+              <NewExpense
+                expenses={expenses}
+                setExpenses={setExpenses}
+                tags={tags}
+              />
+            </Route>
+            <Route exact path="/NewChart">
+              <NewChart expenses={expenses} setExpenses={setExpenses} />
+            </Route>
+            <Route exact path="/Preview/:id">
+              <Preview
+                expenses={expenses}
+                setExpenses={setExpenses}
+                charts={charts}
+              />
+            </Route>
+          </Switch>
+        </Layout>
+      </Router>
+    </ThemeProvider>
   );
 }
 
