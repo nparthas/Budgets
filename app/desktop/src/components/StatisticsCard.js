@@ -12,10 +12,6 @@ import { blueGrey } from "@material-ui/core/colors";
 import PieChart from "./charts/PieChart";
 
 const useStyles = makeStyles({
-  table: {
-    maxWidth: 320,
-    padding: "5px",
-  },
   link: {
     textDecoration: "none",
   },
@@ -28,6 +24,7 @@ const useStyles = makeStyles({
   content: {
     margin: 0,
     padding: 0,
+    height: 183,
   },
 });
 
@@ -57,7 +54,7 @@ const StatisticsCard = (props) => {
   for (var i in data) {
     data2.push(data[i].amount);
   }
-  const info = { data: data2, ar: 2.15, radius: 75, legend: false };
+  const info = { data: data2, ar: 1.85, radius: 85, legend: false };
 
   const classes = useStyles();
 

@@ -20,7 +20,7 @@ import { blueGrey } from "@material-ui/core/colors";
 const useStyles = makeStyles({
   table: {
     maxWidth: "100%",
-    maxHeight: 160,
+    maxHeight: 183,
     // background: blueGrey[100],
   },
   link: {
@@ -32,6 +32,7 @@ const useStyles = makeStyles({
   content: {
     margin: 0,
     padding: "0px 15px",
+    height: 183,
   },
 });
 

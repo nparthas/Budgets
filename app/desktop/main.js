@@ -8,7 +8,7 @@ function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 700,
+    height: 720,
     // maximizable: false,
     backgroundColor: "#263238",
     webPreferences: {
