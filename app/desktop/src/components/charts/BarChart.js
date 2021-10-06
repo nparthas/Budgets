@@ -53,7 +53,7 @@ const BarChart = (props) => {
           ],
         }}
         options={{
-          aspectRatio: 2,
+          aspectRatio: props.info.ar,
           maintainAspectRatio: true,
           responsive: true,
           scales: {

@@ -26,16 +26,21 @@ const useStyles = makeStyles({
   content: {
     margin: "0px 15px",
     padding: 0,
+    height: (chart) => {
+      if (chart.size === "sm") {
+        return 183;
+      } else return 473;
+    },
   },
   avatar: {
-    backgroundColor: (note) => {
-      if (note.category === "Work") {
+    backgroundColor: (chart) => {
+      if (chart.category === "Work") {
         return yellow[700];
       }
-      if (note.category === "Money") {
+      if (chart.category === "Money") {
         return green[500];
       }
-      if (note.category === "Todos") {
+      if (chart.category === "Todos") {
         return pink[500];
       }
       return blue[500];

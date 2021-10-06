@@ -6,17 +6,24 @@ const ChartSelector = (props) => {
     const amount = parseInt(amt);
     return { amount };
   }
-
+  const chart = props.chart;
   const data = props.expenses.map((expense) => addToData(expense.amount));
   var data2 = [];
   for (var i in data) {
     data2.push(data[i].amount);
   }
+  var ar;
+  if (chart.size === "sm") {
+    ar = 1.6;
+  } else {
+    ar = 0.63;
+  }
+
   const info = {
     data: data2,
-    ar: 1.85,
     radius: 75,
-    legend: props.chart.legend,
+    legend: chart.legend,
+    ar: ar,
   };
 
   var type = props.chart.type;
