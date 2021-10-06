@@ -13,15 +13,18 @@ const ChartSelector = (props) => {
     data2.push(data[i].amount);
   }
   var ar;
+  var rad;
   if (chart.size === "sm") {
     ar = 1.6;
+    rad = 75;
   } else {
     ar = 0.63;
+    rad = 130;
   }
 
   const info = {
     data: data2,
-    radius: 75,
+    radius: rad,
     legend: chart.legend,
     ar: ar,
   };
